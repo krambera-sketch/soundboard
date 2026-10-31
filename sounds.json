@@ -96,9 +96,17 @@
       "loop": false
     },
     {
+      "id": "f-02-memes-bella-where-the-hell-have-you-b-0767",
+      "name": "bella where the hell have you been",
+      "color": "#ff9f00",
+      "sec": "s-memes",
+      "file": "sounds/02 Memes/bella where the hell have you been.mp3",
+      "loop": false
+    },
+    {
       "id": "f-02-memes-clap-if-you-care-mp3-636a",
       "name": "clap if you care",
-      "color": "#ff9f00",
+      "color": "#1b1b1e",
       "sec": "s-memes",
       "file": "sounds/02 Memes/clap if you care.mp3",
       "loop": false
@@ -106,7 +114,7 @@
     {
       "id": "f-02-memes-daddy-chill-mp3-db27",
       "name": "Daddy chill",
-      "color": "#1b1b1e",
+      "color": "#ff9f00",
       "sec": "s-memes",
       "file": "sounds/02 Memes/Daddy chill.mp3",
       "loop": false
@@ -114,7 +122,7 @@
     {
       "id": "f-02-memes-death-to-all-of-them-wendy-mp3-847a",
       "name": "death to all of them wendy",
-      "color": "#ff9f00",
+      "color": "#1b1b1e",
       "sec": "s-memes",
       "file": "sounds/02 Memes/death to all of them wendy.mp3",
       "loop": false
@@ -122,7 +130,7 @@
     {
       "id": "f-02-memes-dula-peep-wendy-mp3-10d2",
       "name": "dula peep wendy",
-      "color": "#1b1b1e",
+      "color": "#ff9f00",
       "sec": "s-memes",
       "file": "sounds/02 Memes/dula peep wendy.mp3",
       "loop": false
@@ -130,7 +138,7 @@
     {
       "id": "f-02-memes-dun-dun-dunn-mp3-beb9",
       "name": "dun dun dunn",
-      "color": "#ff9f00",
+      "color": "#39ff14",
       "sec": "s-memes",
       "file": "sounds/02 Memes/dun dun dunn.mp3",
       "loop": false
@@ -138,7 +146,7 @@
     {
       "id": "f-02-memes-ewww-brother-ewww-mp3-4ccf",
       "name": "ewww brother ewww",
-      "color": "#39ff14",
+      "color": "#a80000",
       "sec": "s-memes",
       "file": "sounds/02 Memes/ewww brother ewww.mp3",
       "loop": false
@@ -146,7 +154,7 @@
     {
       "id": "f-02-memes-fahhhhh-mp3-81c6",
       "name": "fahhhhh",
-      "color": "#a80000",
+      "color": "#39ff14",
       "sec": "s-memes",
       "file": "sounds/02 Memes/fahhhhh.mp3",
       "loop": false
@@ -154,7 +162,7 @@
     {
       "id": "f-02-memes-ice-spice-grah-mp3-9e82",
       "name": "Ice spice grah",
-      "color": "#39ff14",
+      "color": "#a80000",
       "sec": "s-memes",
       "file": "sounds/02 Memes/Ice spice grah.mp3",
       "loop": false
@@ -162,7 +170,7 @@
     {
       "id": "f-02-memes-rehehehe-raggy-mp3-0c2a",
       "name": "rehehehe raggy",
-      "color": "#a80000",
+      "color": "#1b1b1e",
       "sec": "s-memes",
       "file": "sounds/02 Memes/rehehehe raggy.mp3",
       "loop": false
@@ -170,7 +178,7 @@
     {
       "id": "f-02-memes-rip-my-granny-mp3-0d64",
       "name": "rip my granny",
-      "color": "#1b1b1e",
+      "color": "#a80000",
       "sec": "s-memes",
       "file": "sounds/02 Memes/rip my granny.mp3",
       "loop": false
@@ -178,7 +186,7 @@
     {
       "id": "f-02-memes-shut-up-bitch-mp3-6e0f",
       "name": "shut up bitch",
-      "color": "#a80000",
+      "color": "#ff9f00",
       "sec": "s-memes",
       "file": "sounds/02 Memes/shut up bitch.mp3",
       "loop": false
@@ -186,7 +194,7 @@
     {
       "id": "f-02-memes-spongebob-fail-mp3-defa",
       "name": "spongebob fail",
-      "color": "#ff9f00",
+      "color": "#1b1b1e",
       "sec": "s-memes",
       "file": "sounds/02 Memes/spongebob fail.mp3",
       "loop": false
@@ -194,7 +202,7 @@
     {
       "id": "f-02-memes-stop-the-cap-mp3-c728",
       "name": "Stop the cap",
-      "color": "#1b1b1e",
+      "color": "#ff9f00",
       "sec": "s-memes",
       "file": "sounds/02 Memes/Stop the cap.mp3",
       "loop": false
@@ -202,7 +210,7 @@
     {
       "id": "f-02-memes-ten-dollar-banana-mp3-8347",
       "name": "ten dollar banana",
-      "color": "#ff9f00",
+      "color": "#39ff14",
       "sec": "s-memes",
       "file": "sounds/02 Memes/ten dollar banana.mp3",
       "loop": false
@@ -210,7 +218,7 @@
     {
       "id": "f-02-memes-there-are-dozens-of-us-mp3-0a22",
       "name": "there are dozens of us",
-      "color": "#39ff14",
+      "color": "#a80000",
       "sec": "s-memes",
       "file": "sounds/02 Memes/there are dozens of us.mp3",
       "loop": false
@@ -218,7 +226,7 @@
     {
       "id": "f-02-memes-to-sacrifice-my-own-life-mp3-f6f9",
       "name": "to sacrifice my own life",
-      "color": "#a80000",
+      "color": "#39ff14",
       "sec": "s-memes",
       "file": "sounds/02 Memes/to sacrifice my own life.mp3",
       "loop": false
@@ -226,7 +234,7 @@
     {
       "id": "f-02-memes-watch-your-profanity-mp3-e538",
       "name": "watch your profanity",
-      "color": "#39ff14",
+      "color": "#a80000",
       "sec": "s-memes",
       "file": "sounds/02 Memes/watch your profanity.mp3",
       "loop": false
@@ -234,7 +242,7 @@
     {
       "id": "f-02-memes-we-do-not-care-mp3-69fb",
       "name": "we do not care",
-      "color": "#a80000",
+      "color": "#39ff14",
       "sec": "s-memes",
       "file": "sounds/02 Memes/we do not care.mp3",
       "loop": false
@@ -242,7 +250,7 @@
     {
       "id": "f-02-memes-we-re-having-a-fire-sale-mp3-ccec",
       "name": "we're having a fire, sale",
-      "color": "#39ff14",
+      "color": "#1b1b1e",
       "sec": "s-memes",
       "file": "sounds/02 Memes/we're having a fire, sale.mp3",
       "loop": false
@@ -250,7 +258,7 @@
     {
       "id": "f-02-memes-why-are-you-running-mp3-fbe0",
       "name": "Why are you running",
-      "color": "#1b1b1e",
+      "color": "#ff9f00",
       "sec": "s-memes",
       "file": "sounds/02 Memes/Why are you running.mp3",
       "loop": false
@@ -400,6 +408,14 @@
       "loop": false
     },
     {
+      "id": "f-03-effects-zelda-secret-sound-mp3-3163",
+      "name": "zelda secret sound",
+      "color": "#39ff14",
+      "sec": "s-effects",
+      "file": "sounds/03 Effects/zelda secret sound.mp3",
+      "loop": false
+    },
+    {
       "id": "f-04-tunes-8bit-happy-birthday-mp3-e273",
       "name": "8bit happy birthday",
       "color": "#39ff14",
@@ -512,9 +528,17 @@
       "loop": false
     },
     {
+      "id": "f-04-tunes-pokemon-battle-mp3-d596",
+      "name": "pokemon battle",
+      "color": "#1b1b1e",
+      "sec": "s-tunes",
+      "file": "sounds/04 Tunes/pokemon battle.mp3",
+      "loop": false
+    },
+    {
       "id": "f-04-tunes-souljaboy-you-mp3-a817",
       "name": "souljaboy YOU",
-      "color": "#1b1b1e",
+      "color": "#ff9f00",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/souljaboy YOU.mp3",
       "loop": false
@@ -522,7 +546,7 @@
     {
       "id": "f-04-tunes-team-rocket-motto-mp3-c00f",
       "name": "Team Rocket motto",
-      "color": "#ff9f00",
+      "color": "#39ff14",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/Team Rocket motto.mp3",
       "loop": false
@@ -530,7 +554,7 @@
     {
       "id": "f-04-tunes-vine-boom-slow-mp3-1b14",
       "name": "vine boom slow",
-      "color": "#39ff14",
+      "color": "#a80000",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/vine boom slow.mp3",
       "loop": false
@@ -538,7 +562,7 @@
     {
       "id": "f-04-tunes-vine-boom-mp3-5611",
       "name": "vine boom",
-      "color": "#a80000",
+      "color": "#39ff14",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/vine boom.mp3",
       "loop": false
