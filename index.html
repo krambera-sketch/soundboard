@@ -23,13 +23,14 @@
   --font: "Bricolage Grotesque", "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
   --font-spooky: "Pirata One", "Bricolage Grotesque", Georgia, serif;
   --pumpkin: #ff9f00;
-  /* night: purple sky, a rising moon behind the graves, swamp glow at ground level */
+  /* night: crimson sky, a blood moon rising behind the graves, red haze at ground level */
   --sky:
-    radial-gradient(circle at 78% calc(100% - 115px), #efe9c4 0 34px, rgba(239, 233, 196, 0.16) 36px, transparent 130px),
-    radial-gradient(ellipse 90% 45% at 50% 108%, rgba(57, 255, 20, 0.16), transparent 70%),
-    linear-gradient(180deg, #1c0d2e 0%, #0e0a16 40%, #0a0a0b 68%, #0d160a 100%);
+    radial-gradient(circle at 78% calc(100% - 115px), #d42a1e 0 34px, rgba(212, 42, 30, 0.3) 36px, transparent 140px),
+    radial-gradient(ellipse 90% 45% at 50% 108%, rgba(168, 0, 0, 0.22), transparent 70%),
+    linear-gradient(180deg, #2a0008 0%, #12040a 40%, #0a0a0b 68%, #140303 100%);
   --silhouette: #030303;
-  --fog: rgba(170, 220, 150, 0.08);
+  --fog: rgba(200, 40, 40, 0.09);
+  --blood-dark: #5c0000;
   /* graveyard skyline: tombstones, crosses, an iron fence, a bare tree and a few bats */
   --grave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 170'%3E%3Cpath d='M0 150 Q100 138 200 148 T400 146 T600 150 V170 H0Z M30 150 v-26 a13 13 0 0 1 26 0 v26z M240 148 v-22 a11 11 0 0 1 22 0 v22z M540 150 v-24 a12 12 0 0 1 24 0 v24z M140 150 V120 l3 -6 l3 6 V150z M152 150 V120 l3 -6 l3 6 V150z M164 150 V120 l3 -6 l3 6 V150z M176 150 V120 l3 -6 l3 6 V150z M188 150 V120 l3 -6 l3 6 V150z M200 150 V120 l3 -6 l3 6 V150z M212 150 V120 l3 -6 l3 6 V150z'/%3E%3Crect x='140' y='126' width='78' height='3'/%3E%3Crect x='140' y='140' width='78' height='3'/%3E%3Crect x='96' y='112' width='6' height='38'/%3E%3Crect x='86' y='122' width='26' height='6'/%3E%3Cg transform='rotate(8 384 140)'%3E%3Crect x='381' y='118' width='5' height='30'/%3E%3Crect x='373' y='126' width='21' height='5'/%3E%3C/g%3E%3Cg fill='none' stroke='black' stroke-linecap='round'%3E%3Cpath d='M455 150 C458 120 452 100 460 80' stroke-width='7'/%3E%3Cpath d='M459 95 C470 88 480 84 492 70 M458 105 C446 98 438 92 430 80' stroke-width='4'/%3E%3Cpath d='M460 82 C462 70 456 62 452 54 M487 74 L499 71 M434 84 L425 86' stroke-width='2.5'/%3E%3C/g%3E%3Cpath d='M300 40 C304 36 308 36 310 40 C311 38 312 37 313 39 C314 37 315 38 316 40 C318 36 322 36 326 40 C321 40 317 42 313 46 C309 42 305 40 300 40Z M336 60 C339 57 342 57 344 60 C345 58 346 58 347 59 C348 58 349 58 350 60 C352 57 355 57 358 60 C354 60 351 62 347 65 C344 62 340 60 336 60Z M512 26 C515 23 518 23 520 26 C521 24 522 24 523 25 C524 24 525 24 526 26 C528 23 531 23 534 26 C530 26 527 28 523 31 C520 28 516 26 512 26Z'/%3E%3C/svg%3E");
   box-sizing: border-box;
@@ -249,6 +250,17 @@ body.locked .title { pointer-events: none; border-bottom-color: transparent !imp
   box-shadow: 0 1px 0 var(--edge), 0 3px 6px rgba(0, 0, 0, 0.22);
 }
 /* black stones need a rim to stand out from the night */
+/* blood running down from the top of the red stones */
+.pad.bleed::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 34px;
+  background: var(--blood-dark);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 34' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H100 V9 C96 9 95 12 94 16 C93 20 89 20 89 16 C88 11 86 9 82 9 H74 C71 9 70 12 70 15 C70 18 66 18 66 15 C66 11 64 9 60 9 H48 C45 9 44 12 44 18 C44 30 37 30 37 18 C37 12 35 9 31 9 H22 C19 9 18 11 18 14 C18 22 12 22 12 14 C12 11 10 9 6 9 H0Z'/%3E%3C/svg%3E") top / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 34' preserveAspectRatio='none'%3E%3Cpath d='M0 0 H100 V9 C96 9 95 12 94 16 C93 20 89 20 89 16 C88 11 86 9 82 9 H74 C71 9 70 12 70 15 C70 18 66 18 66 15 C66 11 64 9 60 9 H48 C45 9 44 12 44 18 C44 30 37 30 37 18 C37 12 35 9 31 9 H22 C19 9 18 11 18 14 C18 22 12 22 12 14 C12 11 10 9 6 9 H0Z'/%3E%3C/svg%3E") top / 100% 100% no-repeat;
+  pointer-events: none;
+}
 .pad.dark { box-shadow: inset 0 0 0 2px rgba(236, 245, 228, 0.16), 0 7px 0 #000, 0 12px 18px rgba(0, 0, 0, 0.22); }
 .pad.dark.down { box-shadow: inset 0 0 0 2px rgba(236, 245, 228, 0.16), 0 1px 0 #000, 0 3px 6px rgba(0, 0, 0, 0.22); }
 .pad.loading { opacity: 0.5; }
@@ -912,6 +924,7 @@ function render() {
       const look = padInk(p.color);
       b.style.setProperty('--pad-ink', look.ink);
       b.classList.toggle('dark', look.dark);
+      b.classList.toggle('bleed', String(p.color).toLowerCase() === '#a80000');
       const fill = document.createElement('span'); fill.className = 'fill';
       const name = document.createElement('span'); name.className = 'name'; name.textContent = p.name;
       b.append(fill, name);
