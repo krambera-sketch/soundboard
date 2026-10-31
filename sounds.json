@@ -2,8 +2,8 @@
   "title": "Party soundboard",
   "sections": [
     {
-      "id": "s-hype",
-      "name": "Hype",
+      "id": "s-effects",
+      "name": "Effects",
       "collapsed": false
     },
     {
@@ -12,140 +12,108 @@
       "collapsed": false
     },
     {
-      "id": "s-sound-effects",
-      "name": "Sound effects",
-      "collapsed": false
-    },
-    {
-      "id": "s-birthday",
-      "name": "Birthday",
+      "id": "s-tunes",
+      "name": "Tunes",
       "collapsed": false
     },
     {
       "id": "s-halloween",
       "name": "Halloween",
       "collapsed": false
+    },
+    {
+      "id": "s-birthday",
+      "name": "Birthday",
+      "collapsed": false
     }
   ],
   "pads": [
     {
-      "id": "f-01-hype-airhorn-mp3-d4c4",
-      "name": "airhorn",
+      "id": "f-01-effects-boingggg-mp3-778a",
+      "name": "boingggg",
       "color": "#7ee03a",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/airhorn.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/boingggg.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-another-on-mp3-5224",
-      "name": "another on",
+      "id": "f-01-effects-bonk-mp3-20af",
+      "name": "bonk",
       "color": "#8b1414",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/another on.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/bonk.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-black-parade-note-1-mp3-d9e8",
-      "name": "black parade note 1",
+      "id": "f-01-effects-church-bells-mp3-4ab2",
+      "name": "church bells",
       "color": "#ffb21e",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/black parade note 1.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/church bells.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-black-parade-several-notes-mp3-2d09",
-      "name": "black parade several notes",
+      "id": "f-01-effects-door-knock-mp3-92b5",
+      "name": "door knock",
       "color": "#1b1b1e",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/black parade several notes.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/door knock.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-daddy-s-home-mp3-8025",
-      "name": "daddy's home",
+      "id": "f-01-effects-fart-sound-mp3-7c7d",
+      "name": "fart sound",
       "color": "#ffb21e",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/daddy's home.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/fart sound.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-dj-chicken-mp3-4edb",
-      "name": "Dj chicken",
+      "id": "f-01-effects-goofy-slip-mp3-34ec",
+      "name": "Goofy slip",
       "color": "#1b1b1e",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/Dj chicken.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/Goofy slip.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-epic-sax-guy-mp3-8904",
-      "name": "epic sax guy",
+      "id": "f-01-effects-manscreaming-mp3-6550",
+      "name": "manscreaming",
       "color": "#ffb21e",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/epic sax guy.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/manscreaming.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-gong-mp3-b7de",
-      "name": "Gong",
+      "id": "f-01-effects-pistol-shot-mp3-ad82",
+      "name": "pistol shot",
       "color": "#7ee03a",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/Gong.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/pistol shot.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-ice-spice-grah-mp3-d2a9",
-      "name": "Ice spice grah",
+      "id": "f-01-effects-rimshot-mp3-664a",
+      "name": "rimshot",
       "color": "#8b1414",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/Ice spice grah.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/rimshot.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-intro-breaking-news-mp3-dfcb",
-      "name": "intro breaking news",
+      "id": "f-01-effects-sad-violin-mp3-0615",
+      "name": "sad violin",
       "color": "#7ee03a",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/intro breaking news.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/sad violin.mp3",
       "loop": false
     },
     {
-      "id": "f-01-hype-lil-jon-what-mp3-f4c1",
-      "name": "lil jon what",
+      "id": "f-01-effects-snore-mimimimimi-mp3-88a4",
+      "name": "Snore mimimimimi",
       "color": "#8b1414",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/lil jon what.mp3",
-      "loop": false
-    },
-    {
-      "id": "f-01-hype-pinkpantheress-dhack-mp3-2030",
-      "name": "Pinkpantheress DHACK",
-      "color": "#1b1b1e",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/Pinkpantheress DHACK.mp3",
-      "loop": false
-    },
-    {
-      "id": "f-01-hype-team-rocket-motto-mp3-ba3f",
-      "name": "Team Rocket motto",
-      "color": "#8b1414",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/Team Rocket motto.mp3",
-      "loop": false
-    },
-    {
-      "id": "f-01-hype-vine-boom-slow-mp3-1fd6",
-      "name": "vine boom slow",
-      "color": "#ffb21e",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/vine boom slow.mp3",
-      "loop": false
-    },
-    {
-      "id": "f-01-hype-vine-boom-mp3-d9d1",
-      "name": "vine boom",
-      "color": "#1b1b1e",
-      "sec": "s-hype",
-      "file": "sounds/01 Hype/vine boom.mp3",
+      "sec": "s-effects",
+      "file": "sounds/01 Effects/Snore mimimimimi.mp3",
       "loop": false
     },
     {
@@ -333,139 +301,171 @@
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-boingggg-mp3-0961",
-      "name": "boingggg",
+      "id": "f-03-tunes-airhorn-mp3-cf61",
+      "name": "airhorn",
       "color": "#7ee03a",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/boingggg.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/airhorn.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-bonk-mp3-9e9c",
-      "name": "bonk",
+      "id": "f-03-tunes-another-one-mp3-ad24",
+      "name": "another one",
       "color": "#8b1414",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/bonk.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/another one.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-church-bells-mp3-0298",
-      "name": "church bells",
+      "id": "f-03-tunes-black-parade-note-1-mp3-f033",
+      "name": "black parade note 1",
       "color": "#ffb21e",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/church bells.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/black parade note 1.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-door-knock-mp3-bf12",
-      "name": "door knock",
+      "id": "f-03-tunes-black-parade-several-notes-mp3-ac71",
+      "name": "black parade several notes",
       "color": "#1b1b1e",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/door knock.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/black parade several notes.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-fart-sound-mp3-61ce",
-      "name": "fart sound",
+      "id": "f-03-tunes-daddy-s-home-mp3-9fe2",
+      "name": "daddy's home",
       "color": "#ffb21e",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/fart sound.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/daddy's home.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-goofy-slip-mp3-395e",
-      "name": "Goofy slip",
+      "id": "f-03-tunes-dj-chicken-mp3-2117",
+      "name": "Dj chicken",
       "color": "#1b1b1e",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/Goofy slip.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/Dj chicken.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-manscreaming-mp3-6a7f",
-      "name": "manscreaming",
+      "id": "f-03-tunes-epic-sax-guy-mp3-2270",
+      "name": "epic sax guy",
       "color": "#ffb21e",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/manscreaming.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/epic sax guy.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-pistol-shot-mp3-ec38",
-      "name": "pistol shot",
+      "id": "f-03-tunes-gong-mp3-f336",
+      "name": "Gong",
       "color": "#7ee03a",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/pistol shot.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/Gong.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-rimshot-mp3-dc88",
-      "name": "rimshot",
+      "id": "f-03-tunes-ice-spice-grah-mp3-d998",
+      "name": "Ice spice grah",
       "color": "#8b1414",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/rimshot.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/Ice spice grah.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-sad-violin-mp3-23fd",
-      "name": "sad violin",
+      "id": "f-03-tunes-intro-breaking-news-mp3-196d",
+      "name": "intro breaking news",
       "color": "#7ee03a",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/sad violin.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/intro breaking news.mp3",
       "loop": false
     },
     {
-      "id": "f-03-sound-effects-snore-mimimimimi-mp3-6f83",
-      "name": "Snore mimimimimi",
+      "id": "f-03-tunes-lil-jon-what-mp3-7b8f",
+      "name": "lil jon what",
       "color": "#8b1414",
-      "sec": "s-sound-effects",
-      "file": "sounds/03 Sound effects/Snore mimimimimi.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/lil jon what.mp3",
       "loop": false
     },
     {
-      "id": "f-04-birthday-8bit-happy-birthday-mp3-29dc",
-      "name": "8bit happy birthday",
-      "color": "#7ee03a",
-      "sec": "s-birthday",
-      "file": "sounds/04 Birthday/8bit happy birthday.mp3",
+      "id": "f-03-tunes-pinkpantheress-dhack-mp3-888b",
+      "name": "Pinkpantheress DHACK",
+      "color": "#1b1b1e",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/Pinkpantheress DHACK.mp3",
       "loop": false
     },
     {
-      "id": "f-04-birthday-happy-birthday-fart-mp3-7fd0",
-      "name": "happy birthday fart",
+      "id": "f-03-tunes-team-rocket-motto-mp3-78ca",
+      "name": "Team Rocket motto",
       "color": "#8b1414",
-      "sec": "s-birthday",
-      "file": "sounds/04 Birthday/happy birthday fart.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/Team Rocket motto.mp3",
       "loop": false
     },
     {
-      "id": "f-04-birthday-happy-birthday-to-yuh-mp3-e14f",
-      "name": "happy birthday to yuh",
+      "id": "f-03-tunes-vine-boom-slow-mp3-5425",
+      "name": "vine boom slow",
       "color": "#ffb21e",
-      "sec": "s-birthday",
-      "file": "sounds/04 Birthday/happy birthday to yuh.mp3",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/vine boom slow.mp3",
       "loop": false
     },
     {
-      "id": "f-05-halloween-happy-halloween-mwahaha-mp3-9161",
+      "id": "f-03-tunes-vine-boom-mp3-f47d",
+      "name": "vine boom",
+      "color": "#1b1b1e",
+      "sec": "s-tunes",
+      "file": "sounds/03 Tunes/vine boom.mp3",
+      "loop": false
+    },
+    {
+      "id": "f-04-halloween-happy-halloween-mwahaha-mp3-376f",
       "name": "Happy halloween mwahaha",
       "color": "#7ee03a",
       "sec": "s-halloween",
-      "file": "sounds/05 Halloween/Happy halloween mwahaha.mp3",
+      "file": "sounds/04 Halloween/Happy halloween mwahaha.mp3",
       "loop": false
     },
     {
-      "id": "f-05-halloween-its-alive-mp3-6309",
+      "id": "f-04-halloween-its-alive-mp3-9d01",
       "name": "its alive",
       "color": "#8b1414",
       "sec": "s-halloween",
-      "file": "sounds/05 Halloween/its alive.mp3",
+      "file": "sounds/04 Halloween/its alive.mp3",
       "loop": false
     },
     {
-      "id": "f-05-halloween-laughing-witch-mp3-55e0",
+      "id": "f-04-halloween-laughing-witch-mp3-7ec6",
       "name": "laughing witch",
       "color": "#ffb21e",
       "sec": "s-halloween",
-      "file": "sounds/05 Halloween/laughing witch.mp3",
+      "file": "sounds/04 Halloween/laughing witch.mp3",
+      "loop": false
+    },
+    {
+      "id": "f-05-birthday-8bit-happy-birthday-mp3-000e",
+      "name": "8bit happy birthday",
+      "color": "#7ee03a",
+      "sec": "s-birthday",
+      "file": "sounds/05 Birthday/8bit happy birthday.mp3",
+      "loop": false
+    },
+    {
+      "id": "f-05-birthday-happy-birthday-fart-mp3-d437",
+      "name": "happy birthday fart",
+      "color": "#8b1414",
+      "sec": "s-birthday",
+      "file": "sounds/05 Birthday/happy birthday fart.mp3",
+      "loop": false
+    },
+    {
+      "id": "f-05-birthday-happy-birthday-to-yuh-mp3-b8f9",
+      "name": "happy birthday to yuh",
+      "color": "#ffb21e",
+      "sec": "s-birthday",
+      "file": "sounds/05 Birthday/happy birthday to yuh.mp3",
       "loop": false
     }
   ]
