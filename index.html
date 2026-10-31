@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>My soundboard</title>
+<title>Haunted soundboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Pirata+One&display=swap" rel="stylesheet">
@@ -534,7 +534,7 @@ let viewer = false; // true when the page is showing a published library (sounds
 const TAU = Math.PI * 2;
 
 /* ---------- saved settings ---------- */
-const state = { title: 'My soundboard', solo: true, pads: [], sections: [] };
+const state = { title: 'Haunted soundboard', solo: true, pads: [], sections: [] };
 try {
   const saved = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
   if (saved && typeof saved === 'object') Object.assign(state, saved);
