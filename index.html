@@ -1,0 +1,1601 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My soundboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Pirata+One&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0a0a0b;
+  --panel: #18181b;
+  --ink: #ecf5e4;
+  --ink-soft: #9aa48f;
+  --line: rgba(236, 245, 228, 0.22);
+  --accent: #7ee03a;
+  --accent-ink: #0d2200;
+  --pad-ink: #141414;
+  --stop: #8b1414;
+  --stop-ink: #ffe3dc;
+  --font: "Bricolage Grotesque", "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
+  --font-spooky: "Pirata One", "Bricolage Grotesque", Georgia, serif;
+  --pumpkin: #ffb21e;
+  /* night: purple sky, a rising moon behind the graves, swamp glow at ground level */
+  --sky:
+    radial-gradient(circle at 78% calc(100% - 115px), #efe9c4 0 34px, rgba(239, 233, 196, 0.16) 36px, transparent 130px),
+    radial-gradient(ellipse 90% 45% at 50% 108%, rgba(126, 224, 58, 0.2), transparent 70%),
+    linear-gradient(180deg, #1c0d2e 0%, #0e0a16 40%, #0a0a0b 68%, #0d160a 100%);
+  --silhouette: #030303;
+  --fog: rgba(170, 220, 150, 0.08);
+  /* graveyard skyline: tombstones, crosses, an iron fence, a bare tree and a few bats */
+  --grave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 170'%3E%3Cpath d='M0 150 Q100 138 200 148 T400 146 T600 150 V170 H0Z M30 150 v-26 a13 13 0 0 1 26 0 v26z M240 148 v-22 a11 11 0 0 1 22 0 v22z M540 150 v-24 a12 12 0 0 1 24 0 v24z M140 150 V120 l3 -6 l3 6 V150z M152 150 V120 l3 -6 l3 6 V150z M164 150 V120 l3 -6 l3 6 V150z M176 150 V120 l3 -6 l3 6 V150z M188 150 V120 l3 -6 l3 6 V150z M200 150 V120 l3 -6 l3 6 V150z M212 150 V120 l3 -6 l3 6 V150z'/%3E%3Crect x='140' y='126' width='78' height='3'/%3E%3Crect x='140' y='140' width='78' height='3'/%3E%3Crect x='96' y='112' width='6' height='38'/%3E%3Crect x='86' y='122' width='26' height='6'/%3E%3Cg transform='rotate(8 384 140)'%3E%3Crect x='381' y='118' width='5' height='30'/%3E%3Crect x='373' y='126' width='21' height='5'/%3E%3C/g%3E%3Cg fill='none' stroke='black' stroke-linecap='round'%3E%3Cpath d='M455 150 C458 120 452 100 460 80' stroke-width='7'/%3E%3Cpath d='M459 95 C470 88 480 84 492 70 M458 105 C446 98 438 92 430 80' stroke-width='4'/%3E%3Cpath d='M460 82 C462 70 456 62 452 54 M487 74 L499 71 M434 84 L425 86' stroke-width='2.5'/%3E%3C/g%3E%3Cpath d='M300 40 C304 36 308 36 310 40 C311 38 312 37 313 39 C314 37 315 38 316 40 C318 36 322 36 326 40 C321 40 317 42 313 46 C309 42 305 40 300 40Z M336 60 C339 57 342 57 344 60 C345 58 346 58 347 59 C348 58 349 58 350 60 C352 57 355 57 358 60 C354 60 351 62 347 65 C344 62 340 60 336 60Z M512 26 C515 23 518 23 520 26 C521 24 522 24 523 25 C524 24 525 24 526 26 C528 23 531 23 534 26 C530 26 527 28 523 31 C520 28 516 26 512 26Z'/%3E%3C/svg%3E");
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+html {
+  height: 100%;
+  background: var(--bg);
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--sky);
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+/* graveyard along the bottom of the screen, with fog drifting in front of it */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+body::before {
+  left: 0;
+  right: 0;
+  height: 170px;
+  background: var(--silhouette);
+  -webkit-mask: var(--grave) left bottom / 600px 170px repeat-x;
+  mask: var(--grave) left bottom / 600px 170px repeat-x;
+}
+body::after {
+  left: -20%;
+  right: -20%;
+  height: 220px;
+  background:
+    radial-gradient(ellipse 30% 60% at 20% 85%, var(--fog), transparent 70%),
+    radial-gradient(ellipse 35% 50% at 62% 92%, var(--fog), transparent 70%),
+    radial-gradient(ellipse 25% 55% at 92% 80%, var(--fog), transparent 70%);
+  animation: drift 40s ease-in-out infinite alternate;
+}
+@keyframes drift { from { transform: translateX(-6%); } to { transform: translateX(6%); } }
+.bar, .editbar, .grid { position: relative; z-index: 1; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- top bar ---------- */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  padding: 14px clamp(14px, 3vw, 28px) 8px;
+}
+.title {
+  flex: 1 1 240px;
+  min-width: 0;
+  font: 400 clamp(2rem, 5vw, 3rem)/1.05 var(--font-spooky);
+  letter-spacing: 0.01em;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px dashed transparent;
+  padding: 2px 0;
+  border-radius: 0;
+}
+.title:hover, .title:focus { border-bottom-color: var(--line); outline: none; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+
+.btn {
+  font: 700 0.95rem var(--font);
+  min-height: 42px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.btn:hover { border-color: var(--ink); }
+.btn[aria-pressed="true"], .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.stop { background: var(--stop); color: var(--stop-ink); border-color: transparent; }
+.btn.rec { background: var(--stop); color: var(--stop-ink); border-color: transparent; }
+.btn.overlap { background: rgba(255, 178, 30, 0.14); border-color: var(--pumpkin); color: var(--ink); }
+.btn.overlap[aria-pressed="true"] { background: var(--pumpkin); border-color: var(--pumpkin); color: #2a1800; }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.icon-btn { width: 42px; padding: 0; display: grid; place-items: center; }
+.icon-btn svg { width: 20px; height: 20px; }
+
+.editbar {
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 2px clamp(14px, 3vw, 28px) 6px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+body.editing .editbar { display: flex; }
+.editbar .btn { min-height: 34px; padding: 4px 12px; font-size: 0.85rem; }
+
+/* ---------- pads ---------- */
+.grid {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 10px clamp(14px, 3vw, 28px) 140px; /* room to scroll the last row clear of the graveyard */
+}
+.sec { flex: none; display: flex; flex-direction: column; gap: 16px; }
+.sec-head { display: flex; align-items: center; gap: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+.sec-toggle {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font-family: var(--font);
+  text-align: left;
+  cursor: pointer;
+}
+.sec-toggle .chev { width: 16px; height: 16px; align-self: center; flex: none; transition: transform 0.15s; }
+.sec-toggle[aria-expanded="true"] .chev { transform: rotate(90deg); }
+.sec-name { font: 400 clamp(1.35rem, 2.8vw, 1.8rem)/1.1 var(--font-spooky); letter-spacing: 0.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sec-count { flex: none; color: var(--ink-soft); font-weight: 600; font-size: 0.9rem; }
+.sec-manage { display: none; min-height: 34px; padding: 4px 12px; font-size: 0.85rem; }
+body.editing .sec-manage { display: inline-block; }
+.sec-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(clamp(104px, 13vw, 150px), auto);
+  gap: 16px 14px;
+  padding-bottom: 10px;
+}
+@media (min-width: 640px)  { .sec-grid { grid-template-columns: repeat(4, 1fr); gap: 20px 18px; } }
+@media (min-width: 1000px) { .sec-grid { grid-template-columns: repeat(5, 1fr); } }
+@media (min-width: 1400px) { .sec-grid { grid-template-columns: repeat(6, 1fr); } }
+.new-sec {
+  flex: none;
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 2px dashed var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: 700 0.95rem var(--font);
+  cursor: pointer;
+}
+.new-sec:hover { border-color: var(--ink); }
+body.kbd .grid .pad.cursor { outline: 4px solid var(--ink); outline-offset: 4px; }
+.pad { scroll-margin: 56px 0; }
+select.field { appearance: auto; }
+select.btn { appearance: auto; padding-right: 10px; }
+select.btn option { background: var(--panel); color: var(--ink); }
+body.locked #addBtn, body.locked #edit, body.locked .new-sec, body.locked .pad.add,
+body.locked .editbar, body.locked .sec-manage { display: none !important; }
+body.locked .title { pointer-events: none; border-bottom-color: transparent !important; }
+
+.pad {
+  --edge: color-mix(in srgb, var(--c) 58%, #000);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 12px 12px;
+  border: 0;
+  /* tombstone: rounded top, square-ish base */
+  border-radius: 50% 50% 10px 10px / 44% 44% 10px 10px;
+  background: var(--c);
+  color: var(--pad-ink);
+  text-align: center;
+  font-family: var(--font);
+  box-shadow: 0 7px 0 var(--edge), 0 12px 18px rgba(0, 0, 0, 0.22);
+  transition: transform 0.05s ease-out, box-shadow 0.05s ease-out;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.pad.down {
+  transform: translateY(6px);
+  box-shadow: 0 1px 0 var(--edge), 0 3px 6px rgba(0, 0, 0, 0.22);
+}
+/* black stones need a rim to stand out from the night */
+.pad.dark { box-shadow: inset 0 0 0 2px rgba(236, 245, 228, 0.16), 0 7px 0 #000, 0 12px 18px rgba(0, 0, 0, 0.22); }
+.pad.dark.down { box-shadow: inset 0 0 0 2px rgba(236, 245, 228, 0.16), 0 1px 0 #000, 0 3px 6px rgba(0, 0, 0, 0.22); }
+.pad.loading { opacity: 0.5; }
+.pad .name {
+  position: relative;
+  z-index: 1;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 0.8rem + 1vw, 1.55rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.pad .fill {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.45);
+  transform-origin: center bottom;
+  transform: scaleY(0);
+  opacity: 0;
+  pointer-events: none;
+}
+.pad.playing .fill { animation: sweep var(--dur, 1s) linear var(--delay, 0s) forwards; }
+.pad.failed { opacity: 0.35; }
+.pad.failed .name { text-decoration: line-through; }
+@keyframes sweep {
+  0%   { transform: scaleY(0); opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+.pad.add {
+  background: transparent;
+  color: var(--ink);
+  border: 3px dashed var(--line);
+  box-shadow: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 700;
+}
+.pad.add:hover { border-color: var(--ink); }
+.pad.add svg { width: 28px; height: 28px; }
+.pad.add span { font-size: 1rem; }
+
+.grid.editing .pad:not(.add) { outline: 3px dashed var(--ink); outline-offset: 3px; }
+.grid.editing .pad:not(.add)::after {
+  content: "Edit";
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+/* ---------- dialogs & toast ---------- */
+dialog {
+  width: min(92vw, 420px);
+  padding: 0;
+  border: 0;
+  border-radius: 22px;
+  background: var(--panel);
+  color: var(--ink);
+  font-family: var(--font);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+dialog::backdrop { background: rgba(20, 6, 40, 0.62); }
+.dlg { display: flex; flex-direction: column; gap: 16px; padding: 22px; }
+.dlg h2 { margin: 0; font-size: 1.45rem; font-weight: 800; letter-spacing: -0.01em; }
+.hint { margin: 0; color: var(--ink-soft); font-weight: 500; line-height: 1.4; }
+.field-label { display: flex; flex-direction: column; gap: 6px; font-weight: 700; }
+.field {
+  font: 600 1.05rem var(--font);
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+.swatches { display: flex; flex-wrap: wrap; gap: 12px; }
+.swatch { width: 38px; height: 38px; border: 0; border-radius: 50%; background: var(--c); cursor: pointer; }
+.swatch[aria-checked="true"] { outline: 3px solid var(--ink); outline-offset: 3px; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.grow { flex: 1; }
+.stack { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
+
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 20px);
+  max-width: min(90vw, 440px);
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: 0.95rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s, transform 0.18s;
+  z-index: 50;
+}
+#toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+
+dialog { max-height: 90vh; overflow: auto; }
+.empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 32px 20px;
+  text-align: center;
+  border: 3px dashed var(--line);
+  border-radius: 24px;
+}
+.empty h2 { margin: 0; font-size: clamp(1.5rem, 4vw, 2.3rem); font-weight: 800; letter-spacing: -0.02em; }
+.empty .hint { max-width: 36ch; }
+.empty .row { justify-content: center; }
+#drop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  text-align: center;
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  border: 6px dashed var(--ink);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  letter-spacing: -0.02em;
+  pointer-events: none;
+}
+.added-list { display: flex; flex-direction: column; gap: 8px; }
+.added-row { display: flex; align-items: center; gap: 10px; }
+.added-row .field { flex: 1; min-width: 0; padding: 8px 12px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; flex: none; }
+.check { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.check input { width: 20px; height: 20px; accent-color: var(--accent); }
+.field-label input[type="range"] { accent-color: var(--accent); }
+.pad.looping.playing .fill { animation-iteration-count: infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pad, #toast { transition: none; }
+  body::after { animation: none; }
+}
+@media (max-width: 520px) {
+  .controls { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <input id="title" class="title" type="text" maxlength="40" aria-label="Soundboard name" spellcheck="false" autocomplete="off">
+  <div class="controls">
+    <button id="addBtn" class="btn primary" type="button">Add sounds</button>
+    <button id="solo" class="btn overlap" type="button" aria-pressed="false">Overlap mode</button>
+    <button id="stop" class="btn stop" type="button">Stop all</button>
+    <button id="edit" class="btn" type="button" aria-pressed="false">Edit</button>
+  </div>
+</header>
+
+
+<div class="editbar">
+  <span>Tap a pad to rename, recolor, loop, move or remove it. Use Edit section to rename, reorder or remove a section.</span>
+</div>
+
+<input id="file" type="file" accept="audio/*" multiple hidden>
+<main id="grid" class="grid" aria-label="Sound pads"></main>
+
+<dialog id="editDlg">
+  <div class="dlg">
+    <h2>Edit pad</h2>
+    <label class="field-label">Name
+      <input id="editName" class="field" type="text" maxlength="28" autocomplete="off">
+    </label>
+    <div>
+      <div class="field-label" id="colorLabel" style="margin-bottom:8px">Color</div>
+      <div id="swatches" class="swatches" role="radiogroup" aria-labelledby="colorLabel"></div>
+    </div>
+    <label class="field-label">Section
+      <select id="editSec" class="field"></select>
+    </label>
+    <label class="field-label">Volume
+      <input id="editGain" type="range" min="0" max="3" step="0.05">
+    </label>
+    <label class="check"><input id="editLoop" type="checkbox"> Loop until tapped again</label>
+    <div class="row">
+      <button id="editRemove" class="btn" type="button">Remove</button>
+      <button id="editPlay" class="btn" type="button">Play</button>
+      <span class="grow"></span>
+      <button id="editCancel" class="btn" type="button">Cancel</button>
+      <button id="editSave" class="btn primary" type="button">Save</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="secDlg">
+  <div class="dlg">
+    <h2 id="secTitle">New section</h2>
+    <label class="field-label">Name
+      <input id="secName" class="field" type="text" maxlength="28" autocomplete="off" placeholder="Intros, Insults, Songs">
+    </label>
+    <div class="row" id="secMoveRow">
+      <button id="secUp" class="btn" type="button">Move up</button>
+      <button id="secDown" class="btn" type="button">Move down</button>
+    </div>
+    <p id="secNote" class="hint"></p>
+    <div class="row">
+      <button id="secRemove" class="btn" type="button">Remove</button>
+      <span class="grow"></span>
+      <button id="secCancel" class="btn" type="button">Cancel</button>
+      <button id="secSave" class="btn primary" type="button">Save</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="addDlg">
+  <div class="dlg">
+    <h2>Add sounds</h2>
+    <p class="hint">Pick audio files from your device (MP3, WAV, M4A) or record one. You can also drop files anywhere on this page.</p>
+    <label class="field-label">Add to section
+      <select id="addSec" class="field"></select>
+    </label>
+    <div class="stack">
+      <button id="uploadBtn" class="btn primary" type="button">Choose audio files</button>
+      <button id="recBtn" class="btn" type="button">Record with mic</button>
+      <button id="starterBtn" class="btn" type="button">Add starter sounds</button>
+      <p id="recStatus" class="hint" role="status"></p>
+    </div>
+    <div id="added" hidden>
+      <div class="field-label" style="margin-bottom:8px">Just added. Rename them here if you like.</div>
+      <div id="addedList" class="added-list"></div>
+    </div>
+    <div class="row"><span class="grow"></span><button id="addDone" class="btn" type="button">Done</button></div>
+  </div>
+</dialog>
+
+<div id="drop" hidden>Drop audio files to add them</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+
+const $ = (s) => document.querySelector(s);
+const PALETTE = ['#7ee03a', '#8b1414', '#ffb21e', '#1b1b1e']; // slime green, dark red, pumpkin yellow, black
+// Dark stones get light lettering, bright ones get dark lettering
+function padInk(hex) {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex || '');
+  if (!m) return { ink: '#141414', dark: false };
+  const n = parseInt(m[1], 16);
+  const lin = (c) => { c /= 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
+  const lum = 0.2126 * lin(n >> 16) + 0.7152 * lin((n >> 8) & 255) + 0.0722 * lin(n & 255);
+  return { ink: lum > 0.18 ? '#141414' : '#f3ecdf', dark: lum < 0.03 };
+}
+const LS_KEY = 'mySoundboard.v1';
+const VIEW_KEY = 'mySoundboard.viewer.v1';
+let viewer = false; // true when the page is showing a published library (sounds.json)
+const TAU = Math.PI * 2;
+
+/* ---------- saved settings ---------- */
+const state = { title: 'My soundboard', solo: true, pads: [], sections: [] };
+try {
+  const saved = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
+  if (saved && typeof saved === 'object') Object.assign(state, saved);
+} catch (e) { /* storage unavailable: run without saving */ }
+// Settings that no longer exist: "tap again" options, the volume slider and the light theme
+delete state.tap; delete state.vol; delete state.theme;
+function save() {
+  try {
+    if (viewer) {
+      // On a published site, only remember personal settings (never the library itself)
+      const collapsed = {};
+      state.sections.forEach((x) => { if (x.collapsed) collapsed[x.id] = true; });
+      localStorage.setItem(VIEW_KEY, JSON.stringify({ solo: state.solo, collapsed }));
+    } else {
+      localStorage.setItem(LS_KEY, JSON.stringify(state));
+    }
+  } catch (e) { /* storage unavailable */ }
+}
+
+/* ---------- audio engine ---------- */
+let ctx = null, master = null, sr = 44100;
+try {
+  const AC = window.AudioContext || window.webkitAudioContext;
+  // iPhone: play through the media channel so the mute switch doesn't silence the board (iOS 17+)
+  if (navigator.audioSession) navigator.audioSession.type = 'playback';
+  ctx = new AC();
+  sr = ctx.sampleRate;
+  const comp = ctx.createDynamicsCompressor();
+  comp.threshold.value = -12; comp.knee.value = 12; comp.ratio.value = 8;
+  comp.attack.value = 0.003; comp.release.value = 0.2;
+  master = ctx.createGain();
+  master.gain.value = 1.3; // fixed level: use the device's volume buttons
+  master.connect(comp);
+  comp.connect(ctx.destination);
+} catch (e) { ctx = null; }
+
+/*SYNTH-START*/
+const rnd = () => Math.random() * 2 - 1;
+const frac = (p) => p - Math.floor(p);
+const saw = (p) => 2 * frac(p) - 1;
+const sqr = (p) => (frac(p) < 0.5 ? 1 : -1);
+const pulse = (p, w) => (frac(p) < w ? 1 : -1);
+const coef = (fc) => 1 - Math.exp(-TAU * fc / sr);
+
+function make(dur, fill) {
+  const n = Math.floor(dur * sr);
+  const buf = ctx.createBuffer(1, n, sr);
+  const d = buf.getChannelData(0);
+  fill(d, n);
+  // Match loudness across sounds (target RMS), soft-limiting any peaks that overshoot
+  let sum = 0;
+  for (let i = 0; i < n; i++) sum += d[i] * d[i];
+  const rms = Math.sqrt(sum / n) || 1;
+  const g = Math.min(0.22 / rms, 6);
+  for (let i = 0; i < n; i++) d[i] = Math.tanh(d[i] * g) * 0.97;
+  const fadeIn = Math.floor(0.002 * sr), fadeOut = Math.floor(0.012 * sr);
+  for (let i = 0; i < fadeIn && i < n; i++) d[i] *= i / fadeIn;
+  for (let i = 0; i < fadeOut && i < n; i++) d[n - 1 - i] *= i / fadeOut;
+  return buf;
+}
+
+function snare(d, t0, amp = 1) {
+  const i0 = Math.floor(t0 * sr), len = Math.floor(0.25 * sr), a = coef(1500);
+  let lp = 0;
+  for (let k = 0; k < len && i0 + k < d.length; k++) {
+    const t = k / sr, x = rnd();
+    lp += a * (x - lp);
+    d[i0 + k] += amp * ((x - lp) * Math.exp(-t * 24) * 0.9 + Math.sin(TAU * 185 * t) * Math.exp(-t * 38) * 0.7);
+  }
+}
+function tom(d, t0, amp = 1, f0 = 160, f1 = 70) {
+  const i0 = Math.floor(t0 * sr), len = Math.floor(0.5 * sr);
+  let ph = 0;
+  for (let k = 0; k < len && i0 + k < d.length; k++) {
+    const t = k / sr;
+    ph += TAU * (f1 + (f0 - f1) * Math.exp(-t * 18)) / sr;
+    d[i0 + k] += amp * Math.sin(ph) * Math.exp(-t * 8);
+  }
+}
+function crash(d, t0, amp = 1, decay = 3) {
+  const i0 = Math.floor(t0 * sr), len = Math.floor(1.8 * sr), a = coef(5500);
+  let lp = 0;
+  for (let k = 0; k < len && i0 + k < d.length; k++) {
+    const t = k / sr, x = rnd();
+    lp += a * (x - lp);
+    d[i0 + k] += amp * (x - lp) * Math.exp(-t * decay) * 0.6;
+  }
+}
+
+const synth = {
+  airhorn: () => make(2.1, (d, n) => {
+    const segs = [[0, 0.17], [0.23, 0.40], [0.47, 1.95]], fr = [466.2, 587.3, 698.5];
+    const ph = new Array(6).fill(0), a = coef(3200);
+    let y = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      let env = 0;
+      for (const [s, e] of segs) if (t >= s && t < e) env = Math.min((t - s) / 0.012, 1) * Math.min((e - t) / 0.1, 1);
+      const vib = 1 + (t > 0.47 ? 0.004 * Math.sin(TAU * 6 * t) : 0);
+      const drop = t > 1.6 ? 1 - 0.06 * ((t - 1.6) / 0.35) : 1;
+      let s = 0;
+      for (let k = 0; k < 3; k++) for (let j = 0; j < 2; j++) {
+        const idx = k * 2 + j;
+        ph[idx] += fr[k] * (j ? 1.005 : 0.996) * vib * drop / sr;
+        s += saw(ph[idx]);
+      }
+      s = (s / 6) * env + rnd() * 0.04 * env;
+      y += a * (s - y);
+      d[i] = Math.tanh(y * 2.5);
+    }
+  }),
+
+  rimshot: () => make(2.2, (d) => {
+    snare(d, 0, 0.9);
+    tom(d, 0.17, 1, 170, 80);
+    snare(d, 0.52, 1);
+    crash(d, 0.52, 1.1, 2.8);
+  }),
+
+  sad: () => make(3.3, (d, n) => {
+    const notes = [[0, 0.5, 233.1], [0.55, 1.05, 220], [1.1, 1.6, 207.7], [1.65, 3.2, 196]];
+    let p1 = 0, p2 = 0, y = 0, y2 = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      let env = 0, f = 0, fc = 400;
+      for (let k = 0; k < 4; k++) {
+        const [s, e, fr] = notes[k];
+        if (t >= s && t < e) {
+          const prog = (t - s) / (e - s);
+          const rel = k === 3 ? 0.35 : 0.06;
+          env = Math.min((t - s) / 0.05, 1) * Math.min((e - t) / rel, 1);
+          f = fr;
+          fc = 250 + 1300 * Math.pow(Math.sin(Math.PI * prog), 0.8);
+          if (k === 3) f *= (1 - 0.10 * prog * prog) * (1 + 0.012 * prog * Math.sin(TAU * 5.5 * t));
+        }
+      }
+      if (f > 0) { p1 += f / sr; p2 += f * 1.006 / sr; }
+      const x = saw(p1) * 0.6 + saw(p2) * 0.4, a = coef(fc);
+      y += a * (x - y);
+      y2 += a * (y - y2);
+      d[i] = y2 * env * 1.4;
+    }
+  }),
+
+  drumroll: () => make(3.4, (d, n) => {
+    const rollEnd = 2.2;
+    let hp = 0, ph = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      if (t >= rollEnd) break;
+      hp += (18 + 11 * (t / rollEnd)) / sr;
+      const loc = hp - Math.floor(hp), idx = Math.floor(hp);
+      const e = Math.exp(-loc * 6.5) * (idx % 2 ? 0.8 : 1);
+      const c = 0.22 + 0.78 * Math.pow(t / rollEnd, 1.3);
+      ph += TAU * 190 / sr;
+      d[i] = (rnd() * 0.8 + Math.sin(ph) * 0.35) * e * c;
+    }
+    snare(d, rollEnd, 1.2);
+    crash(d, rollEnd, 1.1, 2.4);
+    tom(d, rollEnd, 0.8, 110, 55);
+  }),
+
+  scratch: () => make(0.95, (d, n) => {
+    let ph = 0, y = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      const v = Math.abs(Math.sin(TAU * 2.6 * t * (1 + 0.7 * t)));
+      const f = 140 + 2300 * v;
+      ph += f / sr;
+      const x = saw(ph) * 0.6 + rnd() * 0.6;
+      y += coef(500 + f * 2.4) * (x - y);
+      const env = Math.min(t / 0.01, 1) * Math.min((0.95 - t) / 0.12, 1);
+      d[i] = y * (0.12 + 0.88 * v) * env;
+    }
+  }),
+
+  applause: () => make(3.4, (d, n) => {
+    const dur = 3.4;
+    const env = (t) => Math.min(t / 0.6, 1) * Math.min((dur - t) / 1.0, 1);
+    const a = coef(900);
+    let lp = 0;
+    for (let i = 0; i < n; i++) { lp += a * (rnd() - lp); d[i] = lp * 1.6 * env(i / sr); }
+    for (let c = 0; c < 2600; c++) {
+      const t0 = Math.random() * (dur - 0.1);
+      if (Math.random() > env(t0)) continue;
+      const i0 = Math.floor(t0 * sr), len = Math.floor((0.012 + Math.random() * 0.02) * sr);
+      const amp = 0.25 + Math.random() * 0.75, k = 60 + Math.random() * 100;
+      for (let j = 0; j < len && i0 + j < n; j++) d[i0 + j] += rnd() * amp * Math.exp(-(j / sr) * k) * 0.6;
+    }
+  }),
+
+  buzzer: () => make(0.95, (d, n) => {
+    const a = coef(1600);
+    let ph = 0, y = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      ph += 112 / sr;
+      const x = sqr(ph) * 0.55 + saw(ph * 1.5) * 0.25 + saw(ph * 0.99) * 0.2;
+      y += a * (x - y);
+      const am = 0.8 + 0.2 * Math.sin(TAU * 38 * t);
+      d[i] = y * am * Math.min(t / 0.006, 1) * Math.min((0.95 - t) / 0.05, 1);
+    }
+  }),
+
+  ding: () => make(2.2, (d, n) => {
+    const f = 988, parts = [[1, 1, 2.6], [2.01, 0.55, 4], [3.02, 0.3, 6.5], [4.2, 0.18, 9]];
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      let s = 0;
+      for (const [r, g, k] of parts) s += Math.sin(TAU * f * r * t) * g * Math.exp(-t * k);
+      d[i] = s;
+    }
+  }),
+
+  boing: () => make(1.1, (d, n) => {
+    let ph = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      const f = (150 + 330 * Math.exp(-t * 3.2)) * (1 + 0.4 * Math.sin(TAU * (12 - 7 * t) * t) * Math.exp(-t * 2.2));
+      ph += TAU * f / sr;
+      d[i] = (Math.sin(ph) + 0.35 * Math.sin(2 * ph)) * Math.exp(-t * 3.0);
+    }
+  }),
+
+  levelup: () => make(1.2, (d, n) => {
+    const fr = [523.25, 659.25, 783.99, 1046.5, 1318.5];
+    let ph = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr, idx = Math.min(Math.floor(t / 0.075), 4), lt = t - idx * 0.075;
+      ph += fr[idx] / sr;
+      const env = (idx < 4 ? 1 - 0.25 * lt / 0.075 : Math.exp(-lt * 4.2)) * Math.min(lt / 0.004, 1);
+      d[i] = (pulse(ph, 0.25) * 0.6 + pulse(ph * 2, 0.5) * 0.2) * env;
+    }
+  }),
+
+  boom: () => make(2.4, (d, n) => {
+    let ph = 0, lp = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      ph += TAU * (28 + 120 * Math.exp(-t * 7)) / sr;
+      lp += coef(80 + 900 * Math.exp(-t * 9)) * (rnd() - lp);
+      const body = Math.sin(ph) * Math.exp(-t * 1.5), nz = lp * 2.8 * Math.exp(-t * 5);
+      d[i] = Math.tanh((body * 1.2 + nz) * 1.8);
+    }
+  }),
+
+  dun: () => make(3.8, (d, n) => {
+    const stabs = [[0, 220, 0.45, 6], [0.6, 207.65, 0.45, 6], [1.2, 196, 2.5, 1.6]];
+    const ratios = [1, 1.5, 2, 3, 0.5], ph = new Array(5).fill(0), a = coef(1800);
+    let y = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      let env = 0, root = 0;
+      for (const [s, r, len, dk] of stabs) {
+        if (t >= s && t < s + len + 0.1) {
+          env = Math.min((t - s) / 0.008, 1) * Math.exp(-(t - s) * dk) * Math.min((s + len + 0.1 - t) / 0.1, 1);
+          root = r;
+        }
+      }
+      let x = 0;
+      if (root > 0) for (let j = 0; j < 5; j++) { ph[j] += root * ratios[j] / sr; x += saw(ph[j]) * (j === 4 ? 0.9 : 0.5); }
+      y += a * (x - y);
+      d[i] = y * env;
+    }
+  }),
+
+  laser: () => make(0.4, (d, n) => {
+    let ph = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      ph += (250 + 2200 * Math.exp(-t * 11)) / sr;
+      d[i] = (Math.sin(TAU * ph) * 0.7 + sqr(ph) * 0.3) * Math.exp(-t * 7);
+    }
+  })
+};
+/*SYNTH-END*/
+
+const BUILTIN = [
+  { id: 'airhorn',  name: 'Airhorn' },
+  { id: 'rimshot',  name: 'Rimshot' },
+  { id: 'sad',      name: 'Sad trombone' },
+  { id: 'drumroll', name: 'Drumroll' },
+  { id: 'scratch',  name: 'Record scratch' },
+  { id: 'applause', name: 'Applause' },
+  { id: 'buzzer',   name: 'Wrong answer' },
+  { id: 'ding',     name: 'Ding' },
+  { id: 'boing',    name: 'Boing' },
+  { id: 'levelup',  name: 'Level up' },
+  { id: 'boom',     name: 'Bass drop' },
+  { id: 'dun',      name: 'Dun dun dun' },
+  { id: 'laser',    name: 'Pew pew' }
+];
+
+const buffers = new Map();   // pad id -> AudioBuffer
+const blobs = new Map();     // custom pad id -> Blob
+const voices = new Set();
+let editing = false;
+
+/* ---------- pad list & sections ---------- */
+let addTarget = null, cursorId = null;
+const grid = $('#grid');
+const secOf = (id) => state.sections.find((s) => s.id === id);
+const padEl = (id) => Array.from(grid.querySelectorAll('.pad')).find((el) => el.dataset.id === id);
+const newId = (prefix) => prefix + Date.now().toString(36) + Math.random().toString(36).slice(2, 5);
+
+function initPads() {
+  const saved = Array.isArray(state.pads) ? state.pads.filter((p) => p && p.id) : [];
+  state.pads = saved.filter((p) => p.kind !== 'builtin' || BUILTIN.some((b) => b.id === p.id));
+  let secs = Array.isArray(state.sections) ? state.sections.filter((x) => x && x.id && x.name) : [];
+  if (!secs.length) secs = [{ id: 's1', name: 'Sounds', collapsed: false }];
+  state.sections = secs;
+  state.pads.forEach((p) => { if (!secOf(p.sec)) p.sec = secs[0].id; });
+  addTarget = secs[0].id;
+}
+function addStarter() {
+  if (!ctx || viewer) return;
+  let sec = state.sections.find((x) => x.starter);
+  let n = 0;
+  BUILTIN.forEach((b) => {
+    if (state.pads.some((p) => p.id === b.id)) return;
+    try {
+      const buf = synth[b.id]();
+      if (!sec) { sec = { id: newId('s'), name: 'Starter sounds', collapsed: false, starter: true }; state.sections.push(sec); }
+      buffers.set(b.id, buf);
+      state.pads.push({ id: b.id, name: b.name, color: PALETTE[state.pads.length % PALETTE.length], kind: 'builtin', hidden: false, sec: sec.id });
+      n++;
+    } catch (e) { console.error('Could not build', b.id, e); }
+  });
+  save(); render();
+  toast(n ? `Added ${n} starter sounds` : 'The starter sounds are already on your board');
+}
+
+function fillSecSelect(sel, value) {
+  sel.textContent = '';
+  state.sections.forEach((x) => {
+    const o = document.createElement('option');
+    o.value = x.id; o.textContent = x.name;
+    sel.appendChild(o);
+  });
+  sel.value = secOf(value) ? value : state.sections[0].id;
+}
+
+function render() {
+  const keepScroll = grid.scrollTop;
+  grid.textContent = '';
+  fillSecSelect($('#addSec'), addTarget);
+  if (!state.pads.length && state.sections.length <= 1) {
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.innerHTML = viewer
+      ? '<h2>No sounds yet</h2><p class="hint">Add audio files to the sounds folder of the repository and push the change.</p>'
+      : '<h2>Add your first sound</h2><p class="hint">Drop audio files anywhere on this page, or pick them from your device.</p>' +
+        '<div class="row"><button type="button" class="btn primary" data-act="upload">Choose files</button>' +
+        '<button type="button" class="btn" data-act="record">Record with mic</button>' +
+        '<button type="button" class="btn" data-act="starter">Add starter sounds</button></div>';
+    grid.appendChild(empty);
+    return;
+  }
+  state.sections.forEach((sec) => {
+    const mine = state.pads.filter((p) => p.sec === sec.id);
+    const wrap = document.createElement('section');
+    wrap.className = 'sec' + (sec.collapsed ? ' collapsed' : '');
+    wrap.dataset.sec = sec.id;
+
+    const head = document.createElement('div');
+    head.className = 'sec-head';
+    const tog = document.createElement('button');
+    tog.type = 'button'; tog.className = 'sec-toggle'; tog.dataset.toggle = sec.id;
+    tog.setAttribute('aria-expanded', String(!sec.collapsed));
+    tog.innerHTML = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l8 7-8 7"/></svg><span class="sec-name"></span><span class="sec-count"></span>';
+    tog.querySelector('.sec-name').textContent = sec.name;
+    tog.querySelector('.sec-count').textContent = mine.length === 1 ? '1 sound' : mine.length + ' sounds';
+    const manage = document.createElement('button');
+    manage.type = 'button'; manage.className = 'btn sec-manage'; manage.dataset.manage = sec.id;
+    manage.textContent = 'Edit section';
+    head.append(tog, manage);
+
+    const body = document.createElement('div');
+    body.className = 'sec-grid';
+    body.hidden = !!sec.collapsed;
+    mine.forEach((p) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pad' + (buffers.has(p.id) ? '' : p.failed ? ' loading failed' : ' loading');
+      b.dataset.id = p.id;
+      b.style.setProperty('--c', p.color);
+      const look = padInk(p.color);
+      b.style.setProperty('--pad-ink', look.ink);
+      b.classList.toggle('dark', look.dark);
+      const fill = document.createElement('span'); fill.className = 'fill';
+      const name = document.createElement('span'); name.className = 'name'; name.textContent = p.name;
+      b.append(fill, name);
+      body.appendChild(b);
+    });
+    const add = document.createElement('button');
+    add.type = 'button';
+    add.className = 'pad add';
+    add.dataset.sec = sec.id;
+    add.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Add sound</span>';
+    body.appendChild(add);
+
+    wrap.append(head, body);
+    grid.appendChild(wrap);
+  });
+  const ns = document.createElement('button');
+  ns.type = 'button'; ns.className = 'new-sec'; ns.dataset.act = 'newsec'; ns.textContent = 'New section';
+  grid.appendChild(ns);
+
+  const cur = cursorId && padEl(cursorId);
+  if (cur && cur.offsetParent) cur.classList.add('cursor'); else cursorId = null;
+  if (ctx) {
+    // a re-render rebuilds the pads, so put the progress bars back
+    voices.forEach((v) => sweep(v.id, v.dur, v.loop, voicePos(v)));
+  }
+  grid.scrollTop = keepScroll;
+}
+
+/* ---------- playback ---------- */
+let unlocked = false;
+function unlock() {
+  if (!ctx) return;
+  if (ctx.state !== 'running') ctx.resume().catch(() => {});
+  if (!unlocked) {
+    unlocked = true;
+    try {
+      const s = ctx.createBufferSource();
+      s.buffer = ctx.createBuffer(1, 1, sr);
+      s.connect(ctx.destination);
+      s.start(0);
+    } catch (e) {}
+  }
+  keepAwake();
+}
+let wake = null;
+async function keepAwake() {
+  try {
+    if ('wakeLock' in navigator && !wake) {
+      wake = await navigator.wakeLock.request('screen');
+      wake.addEventListener('release', () => { wake = null; });
+    }
+  } catch (e) { /* not supported or denied */ }
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') keepAwake(); });
+['pointerdown', 'keydown', 'touchend'].forEach((ev) => document.addEventListener(ev, unlock, { passive: true, capture: true }));
+
+/*PLAYBACK-START*/
+const voicesOf = (id) => Array.from(voices).filter((v) => v.id === id);
+const voicePos = (v) => {
+  const elapsed = ctx.currentTime - v.t0 + v.off;
+  return v.loop ? elapsed % v.dur : Math.min(elapsed, v.dur);
+};
+function clearVisual(id) {
+  const el = padEl(id);
+  if (el) el.classList.remove('playing', 'looping');
+}
+function sweep(id, dur, loop, offset = 0) {
+  const el = padEl(id);
+  if (!el) return;
+  el.style.setProperty('--dur', Math.max(0.2, dur) + 's');
+  el.style.setProperty('--delay', '-' + offset.toFixed(3) + 's');
+  el.classList.remove('playing');
+  void el.offsetWidth;
+  el.classList.toggle('looping', !!loop);
+  el.classList.add('playing');
+}
+grid.addEventListener('animationend', (e) => {
+  const pad = e.target.closest && e.target.closest('.pad');
+  if (pad) pad.classList.remove('playing');
+});
+
+function stopVoice(v, quick) {
+  voices.delete(v);
+  try {
+    v.g.gain.setTargetAtTime(0, ctx.currentTime, quick ? 0.004 : 0.015);
+    v.src.stop(ctx.currentTime + (quick ? 0.025 : 0.09));
+  } catch (e) {}
+}
+function startVoice(id, offset) {
+  const buf = buffers.get(id);
+  const pad = state.pads.find((p) => p.id === id) || {};
+  if (state.solo) stopAll();
+  while (voices.size >= 24) stopVoice(voices.values().next().value);
+  const dur = buf.duration;
+  const off = Math.max(0, Math.min(offset, dur - 0.02));
+  const src = ctx.createBufferSource();
+  src.buffer = buf;
+  src.loop = !!pad.loop;
+  const g = ctx.createGain();
+  g.gain.value = pad.gain != null ? pad.gain : 1;
+  src.connect(g);
+  g.connect(master);
+  const v = { src, g, id, t0: ctx.currentTime, off, dur, loop: !!pad.loop };
+  voices.add(v);
+  src.onended = () => { voices.delete(v); try { src.disconnect(); g.disconnect(); } catch (e) {} };
+  src.start(0, off);
+  sweep(id, dur, !!pad.loop, off);
+}
+function play(id) {
+  if (!ctx) { toast('This browser can’t play web audio.'); return; }
+  const buf = buffers.get(id);
+  if (!buf) return;
+  if (ctx.state !== 'running') ctx.resume().catch(() => {});
+  const mine = voicesOf(id);
+  if (mine.length) {
+    // Tapping a playing sound stops it; the next tap plays from the beginning
+    mine.forEach((v) => stopVoice(v, true));
+    clearVisual(id);
+    return;
+  }
+  startVoice(id, 0);
+}
+function stopAll() {
+  Array.from(voices).forEach((v) => stopVoice(v));
+  grid.querySelectorAll('.playing').forEach((el) => el.classList.remove('playing', 'looping'));
+}
+/*PLAYBACK-END*/
+
+/* ---------- storage for uploaded sounds ---------- */
+let dbPromise = null;
+function openDb() {
+  if (!dbPromise) {
+    dbPromise = new Promise((res, rej) => {
+      try {
+        const r = indexedDB.open('mySoundboard', 1);
+        r.onupgradeneeded = () => r.result.createObjectStore('sounds', { keyPath: 'id' });
+        r.onsuccess = () => res(r.result);
+        r.onerror = () => rej(r.error);
+      } catch (e) { rej(e); }
+    });
+  }
+  return dbPromise;
+}
+async function idbPut(id, blob) {
+  try {
+    const db = await openDb();
+    await new Promise((res, rej) => {
+      const tx = db.transaction('sounds', 'readwrite');
+      tx.objectStore('sounds').put({ id, blob });
+      tx.oncomplete = res; tx.onerror = () => rej(tx.error);
+    });
+    return true;
+  } catch (e) { return false; }
+}
+async function idbDelete(id) {
+  try {
+    const db = await openDb();
+    await new Promise((res, rej) => {
+      const tx = db.transaction('sounds', 'readwrite');
+      tx.objectStore('sounds').delete(id);
+      tx.oncomplete = res; tx.onerror = () => rej(tx.error);
+    });
+  } catch (e) {}
+}
+async function idbAll() {
+  try {
+    const db = await openDb();
+    return await new Promise((res, rej) => {
+      const r = db.transaction('sounds').objectStore('sounds').getAll();
+      r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+    });
+  } catch (e) { return []; }
+}
+
+function decode(ab) {
+  return new Promise((res, rej) => {
+    const p = ctx.decodeAudioData(ab, res, rej);
+    if (p && p.catch) p.catch(rej);
+  });
+}
+
+let warnedStorage = false;
+// Uploaded clips vary a lot in loudness, so start each one at a matched level.
+function autoGain(buf) {
+  const d = buf.getChannelData(0), step = Math.max(1, Math.floor(d.length / 200000));
+  let pk = 0, sum = 0, c = 0;
+  for (let i = 0; i < d.length; i += step) { const a = Math.abs(d[i]); if (a > pk) pk = a; sum += a * a; c++; }
+  const rms = Math.sqrt(sum / c) || 0.001;
+  const g = Math.min(Math.max(0.16 / rms, 0.4), Math.min(3, 1.4 / (pk || 1)));
+  return Math.round(g * 20) / 20;
+}
+function noteAdded(pad) {
+  $('#added').hidden = false;
+  const row = document.createElement('div');
+  row.className = 'added-row';
+  const dot = document.createElement('span');
+  dot.className = 'dot'; dot.style.background = pad.color;
+  const inp = document.createElement('input');
+  inp.className = 'field'; inp.maxLength = 28; inp.value = pad.name;
+  inp.setAttribute('aria-label', 'Name for ' + pad.name);
+  inp.addEventListener('input', () => {
+    const v = inp.value.trim();
+    if (!v) return;
+    pad.name = v;
+    const el = padEl(pad.id);
+    if (el) el.querySelector('.name').textContent = v;
+    save();
+  });
+  row.append(dot, inp);
+  $('#addedList').appendChild(row);
+}
+async function addSound(blob, name) {
+  if (!ctx) throw new Error('no audio');
+  const buf = await decode(await blob.arrayBuffer());
+  const id = 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  buffers.set(id, buf);
+  blobs.set(id, blob);
+  const pad = {
+    id, name: (name || 'New sound').slice(0, 28), color: PALETTE[state.pads.length % PALETTE.length],
+    kind: 'custom', hidden: false, gain: autoGain(buf), loop: false,
+    sec: secOf(addTarget) ? addTarget : state.sections[0].id
+  };
+  state.pads.push(pad);
+  const stored = await idbPut(id, blob);
+  if (!stored && !warnedStorage) {
+    warnedStorage = true;
+    toast('Your sounds will last until you close this page.');
+  }
+  save();
+  render();
+  if ($('#addDlg').open) noteAdded(pad);
+  return pad;
+}
+async function addFiles(files) {
+  if (viewer) return;
+  let ok = 0;
+  for (const f of files) {
+    if (f.size > 25 * 1024 * 1024) { toast(`${f.name} is too large (25 MB max).`); continue; }
+    try {
+      await addSound(f, f.name.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ').trim());
+      ok++;
+    } catch (e) { toast(`Couldn’t read ${f.name}. Try MP3, WAV or M4A.`); }
+  }
+  if (ok) toast(ok === 1 ? 'Added 1 sound' : `Added ${ok} sounds`);
+}
+
+/* ---------- recording ---------- */
+let rec = null, recStream = null, recTimer = null, recCount = 0;
+async function toggleRecord() {
+  if (viewer) return;
+  const btn = $('#recBtn'), status = $('#recStatus');
+  if (rec) { rec.stop(); return; }
+  status.textContent = '';
+  try {
+    if (!navigator.mediaDevices || !window.MediaRecorder) throw new Error('unsupported');
+    recStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const chunks = [];
+    const r = new MediaRecorder(recStream);
+    rec = r;
+    r.ondataavailable = (e) => { if (e.data && e.data.size) chunks.push(e.data); };
+    r.onstop = async () => {
+      clearTimeout(recTimer);
+      recStream.getTracks().forEach((t) => t.stop());
+      rec = null;
+      btn.classList.remove('rec');
+      btn.textContent = 'Record with mic';
+      try {
+        await addSound(new Blob(chunks, { type: r.mimeType || 'audio/webm' }), 'Recording ' + (++recCount));
+        status.textContent = 'Recording added. Record another or tap Done.';
+      } catch (e) { status.textContent = 'Couldn’t save that recording. Try again.'; }
+    };
+    r.start();
+    btn.textContent = 'Stop recording';
+    btn.classList.add('rec');
+    recTimer = setTimeout(() => { if (rec) rec.stop(); }, 15000);
+  } catch (e) {
+    rec = null;
+    status.textContent = 'The microphone isn’t available here. Upload a file instead.';
+  }
+}
+
+/* ---------- dialogs ---------- */
+function openDialog(d) { if (d.showModal) d.showModal(); else d.setAttribute('open', ''); }
+function closeDialog(d) { if (d.close) d.close(); else d.removeAttribute('open'); }
+[$('#editDlg'), $('#addDlg'), $('#secDlg')].forEach((d) => d.addEventListener('click', (e) => { if (e.target === d) closeDialog(d); }));
+$('#addDlg').addEventListener('close', () => { if (rec) rec.stop(); });
+
+let editId = null, editColor = PALETTE[0];
+function openAdd(secId) {
+  if (viewer) return;
+  const cp = state.pads.find((p) => p.id === cursorId);
+  if (typeof secId !== 'string') secId = cp ? cp.sec : null;
+  if (secId && secOf(secId)) addTarget = secId;
+  else if (!secOf(addTarget)) addTarget = state.sections[0].id;
+  fillSecSelect($('#addSec'), addTarget);
+  $('#recStatus').textContent = '';
+  $('#addedList').textContent = '';
+  $('#added').hidden = true;
+  openDialog($('#addDlg'));
+}
+$('#addSec').addEventListener('change', () => { addTarget = $('#addSec').value; });
+function openEdit(id) {
+  if (viewer) return;
+  const p = state.pads.find((x) => x.id === id);
+  if (!p) return;
+  editId = id; editColor = p.color;
+  $('#editName').value = p.name;
+  $('#editGain').value = p.gain != null ? p.gain : 1;
+  $('#editLoop').checked = !!p.loop;
+  fillSecSelect($('#editSec'), p.sec);
+  paintSwatches();
+  openDialog($('#editDlg'));
+}
+function paintSwatches() {
+  const box = $('#swatches');
+  box.textContent = '';
+  PALETTE.forEach((c) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'swatch'; b.style.setProperty('--c', c);
+    b.setAttribute('role', 'radio'); b.setAttribute('aria-checked', String(c === editColor));
+    b.setAttribute('aria-label', 'Color ' + (PALETTE.indexOf(c) + 1));
+    b.addEventListener('click', () => { editColor = c; paintSwatches(); });
+    box.appendChild(b);
+  });
+}
+function applyEditFields(p) {
+  p.name = $('#editName').value.trim() || p.name;
+  p.color = editColor;
+  p.gain = parseFloat($('#editGain').value);
+  p.loop = $('#editLoop').checked;
+  p.sec = $('#editSec').value;
+}
+function saveEdit() {
+  const p = state.pads.find((x) => x.id === editId);
+  if (p) { applyEditFields(p); save(); render(); }
+  closeDialog($('#editDlg'));
+}
+$('#editSave').addEventListener('click', saveEdit);
+$('#editName').addEventListener('keydown', (e) => { if (e.key === 'Enter') saveEdit(); });
+$('#editCancel').addEventListener('click', () => { stopAll(); closeDialog($('#editDlg')); });
+$('#editPlay').addEventListener('click', () => {
+  const p = state.pads.find((x) => x.id === editId);
+  if (p) { p.gain = parseFloat($('#editGain').value); p.loop = $('#editLoop').checked; }
+  play(editId);
+});
+$('#editDlg').addEventListener('close', stopAll);
+$('#editRemove').addEventListener('click', () => {
+  const i = state.pads.findIndex((x) => x.id === editId);
+  if (i < 0) return;
+  const p = state.pads[i];
+  Array.from(voices).filter((v) => v.id === p.id).forEach((v) => stopVoice(v));
+  state.pads.splice(i, 1);
+  buffers.delete(p.id);
+  if (p.kind === 'custom') { blobs.delete(p.id); idbDelete(p.id); }
+  save(); render();
+  closeDialog($('#editDlg'));
+  toast(`Removed ${p.name}`);
+});
+
+/* ---------- section dialog ---------- */
+let secEditId = null;
+function openSection(id) {
+  if (viewer) return;
+  secEditId = id || null;
+  const sec = id ? secOf(id) : null;
+  const only = state.sections.length < 2;
+  $('#secTitle').textContent = sec ? 'Edit section' : 'New section';
+  $('#secName').value = sec ? sec.name : '';
+  $('#secMoveRow').hidden = !sec || only;
+  $('#secRemove').hidden = !sec;
+  $('#secRemove').disabled = only;
+  $('#secNote').textContent = sec ? (only ? 'You need at least one section.' : 'Removing a section moves its sounds to another section.') : '';
+  openDialog($('#secDlg'));
+  setTimeout(() => $('#secName').focus(), 0);
+}
+function saveSection() {
+  const name = $('#secName').value.trim().slice(0, 28);
+  if (!name) { $('#secName').focus(); return; }
+  if (secEditId && secOf(secEditId)) {
+    secOf(secEditId).name = name;
+  } else {
+    const sec = { id: newId('s'), name, collapsed: false };
+    state.sections.push(sec);
+    addTarget = sec.id;
+    toast(`Added ${name}. New sounds will go there.`);
+  }
+  save(); render();
+  closeDialog($('#secDlg'));
+}
+function moveSection(dir) {
+  const i = state.sections.findIndex((x) => x.id === secEditId), j = i + dir;
+  if (i < 0 || j < 0 || j >= state.sections.length) return;
+  [state.sections[i], state.sections[j]] = [state.sections[j], state.sections[i]];
+  save(); render();
+}
+$('#secSave').addEventListener('click', saveSection);
+$('#secName').addEventListener('keydown', (e) => { if (e.key === 'Enter') saveSection(); });
+$('#secCancel').addEventListener('click', () => closeDialog($('#secDlg')));
+$('#secUp').addEventListener('click', () => moveSection(-1));
+$('#secDown').addEventListener('click', () => moveSection(1));
+$('#secRemove').addEventListener('click', () => {
+  const i = state.sections.findIndex((x) => x.id === secEditId);
+  if (i < 0 || state.sections.length < 2) return;
+  const gone = state.sections[i];
+  const dest = state.sections[i === 0 ? 1 : i - 1];
+  state.pads.forEach((p) => { if (p.sec === gone.id) p.sec = dest.id; });
+  state.sections.splice(i, 1);
+  if (addTarget === gone.id) addTarget = dest.id;
+  save(); render();
+  closeDialog($('#secDlg'));
+  toast(`Removed ${gone.name}. Its sounds moved to ${dest.name}.`);
+});
+
+$('#uploadBtn').addEventListener('click', () => $('#file').click());
+$('#file').addEventListener('change', async (e) => {
+  const files = Array.from(e.target.files || []);
+  e.target.value = '';
+  if (files.length) { await addFiles(files); $('#recStatus').textContent = ''; }
+});
+$('#recBtn').addEventListener('click', toggleRecord);
+$('#addDone').addEventListener('click', () => closeDialog($('#addDlg')));
+$('#starterBtn').addEventListener('click', addStarter);
+$('#addBtn').addEventListener('click', () => openAdd());
+
+const hasFiles = (e) => e.dataTransfer && Array.from(e.dataTransfer.types || []).includes('Files');
+let dragDepth = 0;
+addEventListener('dragenter', (e) => { if (hasFiles(e)) { dragDepth++; $('#drop').hidden = false; } });
+addEventListener('dragleave', (e) => {
+  if (hasFiles(e)) { dragDepth = Math.max(0, dragDepth - 1); if (!dragDepth) $('#drop').hidden = true; }
+});
+addEventListener('dragover', (e) => { if (hasFiles(e)) e.preventDefault(); });
+addEventListener('drop', (e) => {
+  dragDepth = 0; $('#drop').hidden = true;
+  const list = e.dataTransfer && e.dataTransfer.files;
+  if (!list || !list.length) return;
+  e.preventDefault();
+  addFiles(Array.from(list).filter((f) => f.type.startsWith('audio/') || /\.(mp3|wav|m4a|ogg|aac|flac|webm)$/i.test(f.name)));
+});
+
+/* ---------- toast ---------- */
+let toastTimer = null;
+function toast(msg) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ---------- keyboard cursor ---------- */
+const visiblePadEls = () => Array.from(grid.querySelectorAll('.sec:not(.collapsed) .pad:not(.add)'));
+function setCursor(el, scroll = true) {
+  grid.querySelectorAll('.pad.cursor').forEach((x) => x.classList.remove('cursor'));
+  if (!el) { cursorId = null; return; }
+  cursorId = el.dataset.id;
+  el.classList.add('cursor');
+  if (scroll) el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+}
+const showKbd = () => document.body.classList.add('kbd');
+document.addEventListener('pointerdown', () => document.body.classList.remove('kbd'), true);
+
+function moveCursor(dx, dy) {
+  const els = visiblePadEls();
+  if (!els.length) return;
+  const cur = els.find((el) => el.dataset.id === cursorId);
+  if (!cur) { setCursor(els[0]); return; }
+  const r = cur.getBoundingClientRect();
+  const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+  let best = null, bestScore = Infinity;
+  for (const el of els) {
+    if (el === cur) continue;
+    const q = el.getBoundingClientRect();
+    const ddx = q.left + q.width / 2 - cx, ddy = q.top + q.height / 2 - cy;
+    const along = dx ? ddx * dx : ddy * dy;
+    if (along < Math.min(r.width, r.height) * 0.4) continue; // must be clearly in that direction
+    const across = dx ? Math.abs(ddy) : Math.abs(ddx);
+    const score = along + across * 3;
+    if (score < bestScore) { bestScore = score; best = el; }
+  }
+  if (!best && dx) best = els[els.indexOf(cur) + dx]; // wrap to the next or previous row
+  if (best) setCursor(best);
+}
+function activateCursor() {
+  const els = visiblePadEls();
+  const cur = els.find((el) => el.dataset.id === cursorId);
+  if (!cur) { if (els.length) setCursor(els[0]); return; }
+  if (editing) { openEdit(cur.dataset.id); return; }
+  cur.classList.add('down');
+  setTimeout(() => cur.classList.remove('down'), 130);
+  play(cur.dataset.id);
+}
+
+/* ---------- pad input ---------- */
+const down = new Map();
+grid.addEventListener('pointerdown', (e) => {
+  const pad = e.target.closest('.pad');
+  if (!pad || pad.classList.contains('add') || editing) return;
+  if (e.pointerType === 'mouse' && e.button !== 0) return;
+  setCursor(pad, false);
+  pad.classList.add('down');
+  down.set(e.pointerId, pad);
+  play(pad.dataset.id);
+});
+function release(e) {
+  const pad = down.get(e.pointerId);
+  if (pad) { pad.classList.remove('down'); down.delete(e.pointerId); }
+}
+addEventListener('pointerup', release);
+addEventListener('pointercancel', release);
+grid.addEventListener('contextmenu', (e) => e.preventDefault());
+grid.addEventListener('click', (e) => {
+  const tg = e.target.closest('[data-toggle]');
+  if (tg) {
+    const sec = secOf(tg.dataset.toggle);
+    if (sec) { sec.collapsed = !sec.collapsed; save(); render(); }
+    return;
+  }
+  const mg = e.target.closest('[data-manage]');
+  if (mg) { openSection(mg.dataset.manage); return; }
+  const act = e.target.closest('[data-act]');
+  if (act) {
+    if (act.dataset.act === 'upload') $('#file').click();
+    else if (act.dataset.act === 'record') openAdd();
+    else if (act.dataset.act === 'starter') addStarter();
+    else if (act.dataset.act === 'newsec') openSection(null);
+    return;
+  }
+  const pad = e.target.closest('.pad');
+  if (!pad) return;
+  if (pad.classList.contains('add')) { openAdd(pad.dataset.sec); return; }
+  if (editing) { setCursor(pad, false); openEdit(pad.dataset.id); return; }
+  if (e.detail === 0) play(pad.dataset.id); // Enter on a focused pad
+});
+
+// Clicking a button with the mouse shouldn't leave it focused (Space would then press it again)
+document.addEventListener('click', (e) => {
+  const b = e.target.closest && e.target.closest('button');
+  if (b && e.detail > 0 && !b.closest('dialog')) b.blur();
+});
+
+addEventListener('keydown', (e) => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const t = e.target, tag = t && t.tagName;
+  const typing = t && ((tag === 'INPUT' && t.type !== 'range' && t.type !== 'checkbox') || tag === 'TEXTAREA' || tag === 'SELECT' || t.isContentEditable);
+  if (typing || document.querySelector('dialog[open]')) return;
+  const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+  const dirs = {
+    ArrowUp: [0, -1], w: [0, -1], ArrowDown: [0, 1], s: [0, 1],
+    ArrowLeft: [-1, 0], a: [-1, 0], ArrowRight: [1, 0], d: [1, 0]
+  };
+  if (dirs[k]) {
+    if (tag === 'INPUT' && t.type === 'range' && k.startsWith('Arrow')) return; // let the volume slider use arrows
+    e.preventDefault();
+    showKbd();
+    moveCursor(dirs[k][0], dirs[k][1]);
+    return;
+  }
+  if (k === ' ') {
+    if (t && t.closest && t.closest('button:not(.pad), a, summary')) return; // Space presses the focused control
+    e.preventDefault();
+    if (e.repeat) return;
+    showKbd();
+    activateCursor();
+  }
+});
+addEventListener('keyup', (e) => {
+  if (e.key !== ' ') return;
+  const t = e.target;
+  if (t && t.closest && t.closest('button:not(.pad), a, summary, input, select, textarea')) return;
+  e.preventDefault(); // stop a focused pad from also "clicking" on Space release
+});
+
+/* ---------- top bar ---------- */
+const titleEl = $('#title');
+titleEl.value = state.title;
+titleEl.addEventListener('input', () => { state.title = titleEl.value; save(); });
+titleEl.addEventListener('keydown', (e) => { if (e.key === 'Enter') titleEl.blur(); });
+
+const soloEl = $('#solo');
+soloEl.setAttribute('aria-pressed', String(!state.solo));
+soloEl.addEventListener('click', () => {
+  state.solo = !state.solo;
+  soloEl.setAttribute('aria-pressed', String(!state.solo));
+  save();
+  toast(state.solo ? 'Overlap mode off: one sound at a time' : 'Overlap mode on: sounds can play together');
+});
+
+$('#stop').addEventListener('click', stopAll);
+
+
+$('#edit').addEventListener('click', (e) => {
+  editing = !editing;
+  e.currentTarget.setAttribute('aria-pressed', String(editing));
+  document.body.classList.toggle('editing', editing);
+  grid.classList.toggle('editing', editing);
+});
+
+/* ---------- boot ---------- */
+function applyPrefs() {
+  titleEl.value = state.title;
+  soloEl.setAttribute('aria-pressed', String(!state.solo));
+}
+
+// Sounds uploaded in this browser (editor mode)
+async function loadLocalSounds() {
+  const rows = await idbAll();
+  rows.forEach((r) => { if (r && r.blob) blobs.set(r.id, r.blob); });
+  const customs = state.pads.filter((p) => p.kind === 'custom');
+  await Promise.all(customs.map(async (p) => {
+    const blob = blobs.get(p.id);
+    if (!blob || !ctx) return;
+    try { buffers.set(p.id, await decode(await blob.arrayBuffer())); } catch (e) {}
+  }));
+  // Drop custom pads whose audio could not be recovered
+  state.pads = state.pads.filter((p) => p.kind !== 'custom' || buffers.has(p.id));
+  save();
+  render();
+}
+
+function startEditor() {
+  initPads();
+  if (!ctx) {
+    toast('This browser can’t play web audio.');
+  } else {
+    state.pads.filter((p) => p.kind === 'builtin').forEach((p) => {
+      try { buffers.set(p.id, synth[p.id]()); } catch (e) { console.error('Could not build', p.id, e); }
+    });
+  }
+  applyPrefs();
+  render();
+  loadLocalSounds();
+}
+
+// Published site: sounds.json lists the files in the sounds folder
+async function loadManifest() {
+  try {
+    const r = await fetch('sounds.json', { cache: 'no-store' });
+    if (!r.ok) return null;
+    const m = await r.json();
+    return m && Array.isArray(m.pads) ? m : null;
+  } catch (e) { return null; }
+}
+const filePath = (f) => String(f).split('/').map(encodeURIComponent).join('/');
+
+async function loadFiles() {
+  const queue = state.pads.filter((p) => p.kind === 'file');
+  let next = 0, failed = 0;
+  const worker = async () => {
+    while (next < queue.length) {
+      const p = queue[next++];
+      try {
+        const r = await fetch(filePath(p.file));
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const buf = await decode(await r.arrayBuffer());
+        buffers.set(p.id, buf);
+        if (p.gain == null) p.gain = autoGain(buf);
+        const el = padEl(p.id);
+        if (el) el.classList.remove('loading');
+      } catch (e) {
+        failed++;
+        p.failed = true;
+        const el = padEl(p.id);
+        if (el) el.classList.add('failed');
+      }
+    }
+  };
+  await Promise.all([worker(), worker(), worker(), worker()]);
+  if (failed) toast(`${failed} sound${failed === 1 ? '' : 's'} couldn’t be loaded.`);
+}
+
+function startViewer(m) {
+  viewer = true;
+  document.body.classList.add('locked');
+  titleEl.readOnly = true;
+  titleEl.tabIndex = -1;
+  let prefs = {};
+  try { prefs = JSON.parse(localStorage.getItem(VIEW_KEY) || '{}') || {}; } catch (e) {}
+  state.solo = prefs.solo !== false; // one sound at a time unless this viewer turned on overlap mode
+  state.title = m.title || 'Soundboard';
+  document.title = state.title;
+  const collapsed = prefs.collapsed || {};
+  state.sections = (m.sections || []).filter((x) => x && x.id && x.name)
+    .map((x) => ({ id: x.id, name: x.name, collapsed: collapsed[x.id] !== undefined ? !!collapsed[x.id] : !!x.collapsed }));
+  state.pads = m.pads.filter((x) => x && x.id && x.file).map((x) => ({
+    id: x.id, name: x.name || 'Sound', color: x.color || PALETTE[0], kind: 'file',
+    file: x.file, sec: x.sec, gain: typeof x.gain === 'number' ? x.gain : undefined, loop: !!x.loop
+  }));
+  initPads();
+  applyPrefs();
+  render();
+  loadFiles();
+}
+
+(async () => {
+  const manifest = await loadManifest();
+  if (manifest) startViewer(manifest); else startEditor();
+})();
+})();
+</script>
+</body>
+</html>
