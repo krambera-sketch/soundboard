@@ -31,7 +31,7 @@
     {
       "id": "f-01-effects-boingggg-mp3-778a",
       "name": "boingggg",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-effects",
       "file": "sounds/01 Effects/boingggg.mp3",
       "loop": false
@@ -39,7 +39,7 @@
     {
       "id": "f-01-effects-bonk-mp3-20af",
       "name": "bonk",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-effects",
       "file": "sounds/01 Effects/bonk.mp3",
       "loop": false
@@ -47,7 +47,7 @@
     {
       "id": "f-01-effects-church-bells-mp3-4ab2",
       "name": "church bells",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-effects",
       "file": "sounds/01 Effects/church bells.mp3",
       "loop": false
@@ -63,7 +63,7 @@
     {
       "id": "f-01-effects-fart-sound-mp3-7c7d",
       "name": "fart sound",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-effects",
       "file": "sounds/01 Effects/fart sound.mp3",
       "loop": false
@@ -79,7 +79,7 @@
     {
       "id": "f-01-effects-manscreaming-mp3-6550",
       "name": "manscreaming",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-effects",
       "file": "sounds/01 Effects/manscreaming.mp3",
       "loop": false
@@ -87,7 +87,7 @@
     {
       "id": "f-01-effects-pistol-shot-mp3-ad82",
       "name": "pistol shot",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-effects",
       "file": "sounds/01 Effects/pistol shot.mp3",
       "loop": false
@@ -95,7 +95,7 @@
     {
       "id": "f-01-effects-rimshot-mp3-664a",
       "name": "rimshot",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-effects",
       "file": "sounds/01 Effects/rimshot.mp3",
       "loop": false
@@ -103,7 +103,7 @@
     {
       "id": "f-01-effects-sad-violin-mp3-0615",
       "name": "sad violin",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-effects",
       "file": "sounds/01 Effects/sad violin.mp3",
       "loop": false
@@ -111,7 +111,7 @@
     {
       "id": "f-01-effects-snore-mimimimimi-mp3-88a4",
       "name": "Snore mimimimimi",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-effects",
       "file": "sounds/01 Effects/Snore mimimimimi.mp3",
       "loop": false
@@ -119,7 +119,7 @@
     {
       "id": "f-02-reactions-wow-mp3-29c4",
       "name": "*wow*",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/*wow*.mp3",
       "loop": false
@@ -127,7 +127,7 @@
     {
       "id": "f-02-reactions-ahkkk-mp3-723b",
       "name": "AHKKK",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/AHKKK.mp3",
       "loop": false
@@ -135,7 +135,7 @@
     {
       "id": "f-02-reactions-amigos-mp3-8c1c",
       "name": "amigos",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/amigos.mp3",
       "loop": false
@@ -151,7 +151,7 @@
     {
       "id": "f-02-reactions-clap-if-you-care-mp3-97b0",
       "name": "clap if you care",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/clap if you care.mp3",
       "loop": false
@@ -167,7 +167,7 @@
     {
       "id": "f-02-reactions-daddy-chill-mp3-67ec",
       "name": "Daddy chill",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/Daddy chill.mp3",
       "loop": false
@@ -175,7 +175,7 @@
     {
       "id": "f-02-reactions-death-to-all-of-them-wendy--d241",
       "name": "death to all of them wendy",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/death to all of them wendy.mp3",
       "loop": false
@@ -183,7 +183,7 @@
     {
       "id": "f-02-reactions-dula-peep-wendy-mp3-ac5a",
       "name": "dula peep wendy",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/dula peep wendy.mp3",
       "loop": false
@@ -191,7 +191,7 @@
     {
       "id": "f-02-reactions-ewww-brother-ewww-mp3-1035",
       "name": "ewww brother ewww",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/ewww brother ewww.mp3",
       "loop": false
@@ -199,7 +199,7 @@
     {
       "id": "f-02-reactions-fahhhh-mp3-ab0c",
       "name": "fahhhh",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/fahhhh.mp3",
       "loop": false
@@ -215,7 +215,7 @@
     {
       "id": "f-02-reactions-rehehehe-raggy-mp3-5599",
       "name": "rehehehe raggy",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/rehehehe raggy.mp3",
       "loop": false
@@ -223,7 +223,7 @@
     {
       "id": "f-02-reactions-rip-my-granny-mp3-e02a",
       "name": "rip my granny",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/rip my granny.mp3",
       "loop": false
@@ -239,7 +239,7 @@
     {
       "id": "f-02-reactions-stop-the-cap-mp3-7a02",
       "name": "Stop the cap",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/Stop the cap.mp3",
       "loop": false
@@ -247,7 +247,7 @@
     {
       "id": "f-02-reactions-ten-dollar-banana-mp3-d40a",
       "name": "ten dollar banana",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/ten dollar banana.mp3",
       "loop": false
@@ -255,7 +255,7 @@
     {
       "id": "f-02-reactions-there-are-dozens-of-us-mp3-a360",
       "name": "there are dozens of us",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/there are dozens of us.mp3",
       "loop": false
@@ -263,7 +263,7 @@
     {
       "id": "f-02-reactions-to-sacrifice-my-own-life-mp-9ea6",
       "name": "to sacrifice my own life",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/to sacrifice my own life.mp3",
       "loop": false
@@ -271,7 +271,7 @@
     {
       "id": "f-02-reactions-watch-your-profanity-mp3-13e1",
       "name": "watch your profanity",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/watch your profanity.mp3",
       "loop": false
@@ -279,7 +279,7 @@
     {
       "id": "f-02-reactions-we-do-not-care-mp3-a818",
       "name": "we do not care",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/we do not care.mp3",
       "loop": false
@@ -295,7 +295,7 @@
     {
       "id": "f-02-reactions-why-are-you-running-mp3-1463",
       "name": "Why are you running",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-reactions",
       "file": "sounds/02 Reactions/Why are you running.mp3",
       "loop": false
@@ -303,7 +303,7 @@
     {
       "id": "f-03-tunes-airhorn-mp3-cf61",
       "name": "airhorn",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/airhorn.mp3",
       "loop": false
@@ -311,7 +311,7 @@
     {
       "id": "f-03-tunes-another-one-mp3-ad24",
       "name": "another one",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/another one.mp3",
       "loop": false
@@ -319,7 +319,7 @@
     {
       "id": "f-03-tunes-black-parade-note-1-mp3-f033",
       "name": "black parade note 1",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/black parade note 1.mp3",
       "loop": false
@@ -335,7 +335,7 @@
     {
       "id": "f-03-tunes-daddy-s-home-mp3-9fe2",
       "name": "daddy's home",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/daddy's home.mp3",
       "loop": false
@@ -351,7 +351,7 @@
     {
       "id": "f-03-tunes-epic-sax-guy-mp3-2270",
       "name": "epic sax guy",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/epic sax guy.mp3",
       "loop": false
@@ -359,7 +359,7 @@
     {
       "id": "f-03-tunes-gong-mp3-f336",
       "name": "Gong",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/Gong.mp3",
       "loop": false
@@ -367,7 +367,7 @@
     {
       "id": "f-03-tunes-ice-spice-grah-mp3-d998",
       "name": "Ice spice grah",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/Ice spice grah.mp3",
       "loop": false
@@ -375,7 +375,7 @@
     {
       "id": "f-03-tunes-intro-breaking-news-mp3-196d",
       "name": "intro breaking news",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/intro breaking news.mp3",
       "loop": false
@@ -383,7 +383,7 @@
     {
       "id": "f-03-tunes-lil-jon-what-mp3-7b8f",
       "name": "lil jon what",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/lil jon what.mp3",
       "loop": false
@@ -399,7 +399,7 @@
     {
       "id": "f-03-tunes-team-rocket-motto-mp3-78ca",
       "name": "Team Rocket motto",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/Team Rocket motto.mp3",
       "loop": false
@@ -407,7 +407,7 @@
     {
       "id": "f-03-tunes-vine-boom-slow-mp3-5425",
       "name": "vine boom slow",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-tunes",
       "file": "sounds/03 Tunes/vine boom slow.mp3",
       "loop": false
@@ -423,7 +423,7 @@
     {
       "id": "f-04-halloween-happy-halloween-mwahaha-mp3-376f",
       "name": "Happy halloween mwahaha",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-halloween",
       "file": "sounds/04 Halloween/Happy halloween mwahaha.mp3",
       "loop": false
@@ -431,7 +431,7 @@
     {
       "id": "f-04-halloween-its-alive-mp3-9d01",
       "name": "its alive",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-halloween",
       "file": "sounds/04 Halloween/its alive.mp3",
       "loop": false
@@ -439,7 +439,7 @@
     {
       "id": "f-04-halloween-laughing-witch-mp3-7ec6",
       "name": "laughing witch",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-halloween",
       "file": "sounds/04 Halloween/laughing witch.mp3",
       "loop": false
@@ -447,7 +447,7 @@
     {
       "id": "f-05-birthday-8bit-happy-birthday-mp3-000e",
       "name": "8bit happy birthday",
-      "color": "#7ee03a",
+      "color": "#39ff14",
       "sec": "s-birthday",
       "file": "sounds/05 Birthday/8bit happy birthday.mp3",
       "loop": false
@@ -455,7 +455,7 @@
     {
       "id": "f-05-birthday-happy-birthday-fart-mp3-d437",
       "name": "happy birthday fart",
-      "color": "#8b1414",
+      "color": "#a80000",
       "sec": "s-birthday",
       "file": "sounds/05 Birthday/happy birthday fart.mp3",
       "loop": false
@@ -463,7 +463,7 @@
     {
       "id": "f-05-birthday-happy-birthday-to-yuh-mp3-b8f9",
       "name": "happy birthday to yuh",
-      "color": "#ffb21e",
+      "color": "#ff9f00",
       "sec": "s-birthday",
       "file": "sounds/05 Birthday/happy birthday to yuh.mp3",
       "loop": false

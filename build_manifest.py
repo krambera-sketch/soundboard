@@ -22,7 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SOUNDS = ROOT / "sounds"
 EXTS = {".mp3", ".wav", ".ogg", ".m4a", ".aac", ".flac", ".webm", ".opus"}
-PALETTE = ["#7ee03a", "#8b1414", "#ffb21e", "#1b1b1e"]  # slime green, dark red, pumpkin yellow, black
+PALETTE = ["#39ff14", "#a80000", "#ff9f00", "#1b1b1e"]  # toxic green, blood red, pumpkin, black
 DEFAULT_SECTION = "Sounds"
 
 

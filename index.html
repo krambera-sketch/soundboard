@@ -15,18 +15,18 @@
   --ink: #ecf5e4;
   --ink-soft: #9aa48f;
   --line: rgba(236, 245, 228, 0.22);
-  --accent: #7ee03a;
-  --accent-ink: #0d2200;
+  --accent: #39ff14;
+  --accent-ink: #0a2a00;
   --pad-ink: #141414;
-  --stop: #8b1414;
+  --stop: #a80000;
   --stop-ink: #ffe3dc;
   --font: "Bricolage Grotesque", "Avenir Next", "Trebuchet MS", system-ui, sans-serif;
   --font-spooky: "Pirata One", "Bricolage Grotesque", Georgia, serif;
-  --pumpkin: #ffb21e;
+  --pumpkin: #ff9f00;
   /* night: purple sky, a rising moon behind the graves, swamp glow at ground level */
   --sky:
     radial-gradient(circle at 78% calc(100% - 115px), #efe9c4 0 34px, rgba(239, 233, 196, 0.16) 36px, transparent 130px),
-    radial-gradient(ellipse 90% 45% at 50% 108%, rgba(126, 224, 58, 0.2), transparent 70%),
+    radial-gradient(ellipse 90% 45% at 50% 108%, rgba(57, 255, 20, 0.16), transparent 70%),
     linear-gradient(180deg, #1c0d2e 0%, #0e0a16 40%, #0a0a0b 68%, #0d160a 100%);
   --silhouette: #030303;
   --fog: rgba(170, 220, 150, 0.08);
@@ -122,7 +122,7 @@ body::after {
 .btn[aria-pressed="true"], .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .btn.stop { background: var(--stop); color: var(--stop-ink); border-color: transparent; }
 .btn.rec { background: var(--stop); color: var(--stop-ink); border-color: transparent; }
-.btn.overlap { background: rgba(255, 178, 30, 0.14); border-color: var(--pumpkin); color: var(--ink); }
+.btn.overlap { background: rgba(255, 159, 0, 0.16); border-color: var(--pumpkin); color: var(--ink); }
 .btn.overlap[aria-pressed="true"] { background: var(--pumpkin); border-color: var(--pumpkin); color: #2a1800; }
 .btn:disabled { opacity: 0.45; cursor: default; }
 .icon-btn { width: 42px; padding: 0; display: grid; place-items: center; }
@@ -492,7 +492,7 @@ dialog { max-height: 90vh; overflow: auto; }
 'use strict';
 
 const $ = (s) => document.querySelector(s);
-const PALETTE = ['#7ee03a', '#8b1414', '#ffb21e', '#1b1b1e']; // slime green, dark red, pumpkin yellow, black
+const PALETTE = ['#39ff14', '#a80000', '#ff9f00', '#1b1b1e']; // toxic green, blood red, pumpkin, black
 // Dark stones get light lettering, bright ones get dark lettering
 function padInk(hex) {
   const m = /^#?([0-9a-f]{6})$/i.exec(hex || '');
@@ -1391,22 +1391,39 @@ function activateCursor() {
 }
 
 /* ---------- pad input ---------- */
-const down = new Map();
+// A sound plays when the finger lifts, and only if it stayed put: sliding to scroll never plays anything
+const SLOP = 10; // px a finger may wander and still count as a tap
+const down = new Map(); // pointer id -> { pad, x, y }
+let lastScroll = 0;
+function cancelPress(id) {
+  const d = down.get(id);
+  if (d) { d.pad.classList.remove('down'); down.delete(id); }
+}
+grid.addEventListener('scroll', () => {
+  lastScroll = performance.now();
+  Array.from(down.keys()).forEach(cancelPress);
+}, { passive: true });
 grid.addEventListener('pointerdown', (e) => {
   const pad = e.target.closest('.pad');
   if (!pad || pad.classList.contains('add') || editing) return;
   if (e.pointerType === 'mouse' && e.button !== 0) return;
-  setCursor(pad, false);
+  if (performance.now() - lastScroll < 150) return; // this touch is just stopping a flick-scroll
   pad.classList.add('down');
-  down.set(e.pointerId, pad);
-  play(pad.dataset.id);
+  down.set(e.pointerId, { pad, x: e.clientX, y: e.clientY });
 });
-function release(e) {
-  const pad = down.get(e.pointerId);
-  if (pad) { pad.classList.remove('down'); down.delete(e.pointerId); }
-}
-addEventListener('pointerup', release);
-addEventListener('pointercancel', release);
+addEventListener('pointermove', (e) => {
+  const d = down.get(e.pointerId);
+  if (d && Math.hypot(e.clientX - d.x, e.clientY - d.y) > SLOP) cancelPress(e.pointerId);
+}, { passive: true });
+addEventListener('pointerup', (e) => {
+  const d = down.get(e.pointerId);
+  if (!d) return;
+  cancelPress(e.pointerId);
+  if (Math.hypot(e.clientX - d.x, e.clientY - d.y) > SLOP) return;
+  setCursor(d.pad, false);
+  play(d.pad.dataset.id);
+});
+addEventListener('pointercancel', (e) => cancelPress(e.pointerId)); // the browser took the touch over for scrolling
 grid.addEventListener('contextmenu', (e) => e.preventDefault());
 grid.addEventListener('click', (e) => {
   const tg = e.target.closest('[data-toggle]');
