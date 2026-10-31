@@ -185,7 +185,6 @@ body.editing .editbar { display: flex; }
 .sec-toggle .chev { width: 20px; height: 20px; transition: transform 0.15s; }
 .sec-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
 .sec-name { font: 400 clamp(1.35rem, 2.8vw, 1.8rem)/1.1 var(--font-spooky); letter-spacing: 0.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sec-count { flex: none; color: var(--ink-soft); font-weight: 600; font-size: 0.9rem; }
 .sec-manage { display: none; min-height: 34px; padding: 4px 12px; font-size: 0.85rem; }
 body.editing .sec-manage { display: inline-block; }
 .sec-grid {
@@ -905,8 +904,8 @@ function render() {
     const tog = document.createElement('button');
     tog.type = 'button'; tog.className = 'sec-toggle'; tog.dataset.toggle = sec.id;
     tog.setAttribute('aria-expanded', String(!sec.collapsed));
-    tog.innerHTML = '<span class="sec-name"></span><span class="sec-count"></span><span class="knob"><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>';    tog.querySelector('.sec-name').textContent = sec.name;
-    tog.querySelector('.sec-count').textContent = mine.length === 1 ? '1 sound' : mine.length + ' sounds';
+    tog.innerHTML = '<span class="sec-name"></span><span class="knob"><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>';
+    tog.querySelector('.sec-name').textContent = sec.name;
     const manage = document.createElement('button');
     manage.type = 'button'; manage.className = 'btn sec-manage'; manage.dataset.manage = sec.id;
     manage.textContent = 'Edit section';
