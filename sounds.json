@@ -48,9 +48,17 @@
       "loop": false
     },
     {
+      "id": "f-01-halloween-y-here-s-johnny-mp3-cbc5",
+      "name": "here's johnny",
+      "color": "#1b1b1e",
+      "sec": "s-halloween-y",
+      "file": "sounds/01 Halloween-y/here's johnny.mp3",
+      "loop": false
+    },
+    {
       "id": "f-01-halloween-y-its-alive-mp3-dfc0",
       "name": "its alive",
-      "color": "#1b1b1e",
+      "color": "#ff9f00",
       "sec": "s-halloween-y",
       "file": "sounds/01 Halloween-y/its alive.mp3",
       "loop": false
@@ -58,7 +66,7 @@
     {
       "id": "f-01-halloween-y-last-of-us-clicker-mp3-035e",
       "name": "last of us clicker",
-      "color": "#ff9f00",
+      "color": "#1b1b1e",
       "sec": "s-halloween-y",
       "file": "sounds/01 Halloween-y/last of us clicker.mp3",
       "loop": false
@@ -66,7 +74,7 @@
     {
       "id": "f-01-halloween-y-laughing-witch-mp3-b44a",
       "name": "laughing witch",
-      "color": "#1b1b1e",
+      "color": "#ff9f00",
       "sec": "s-halloween-y",
       "file": "sounds/01 Halloween-y/laughing witch.mp3",
       "loop": false
@@ -74,7 +82,7 @@
     {
       "id": "f-01-halloween-y-scary-tiktok-music-mp3-8bbb",
       "name": "scary tiktok music",
-      "color": "#ff9f00",
+      "color": "#39ff14",
       "sec": "s-halloween-y",
       "file": "sounds/01 Halloween-y/scary tiktok music.mp3",
       "loop": false
@@ -408,9 +416,17 @@
       "loop": false
     },
     {
+      "id": "f-03-effects-wazzupppp-mp3-b404",
+      "name": "wazzupppp",
+      "color": "#39ff14",
+      "sec": "s-effects",
+      "file": "sounds/03 Effects/wazzupppp.mp3",
+      "loop": false
+    },
+    {
       "id": "f-03-effects-zelda-secret-sound-mp3-3163",
       "name": "zelda secret sound",
-      "color": "#39ff14",
+      "color": "#a80000",
       "sec": "s-effects",
       "file": "sounds/03 Effects/zelda secret sound.mp3",
       "loop": false
@@ -472,9 +488,17 @@
       "loop": false
     },
     {
+      "id": "f-04-tunes-ghostbusters-mp3-2f7a",
+      "name": "ghostbusters!",
+      "color": "#39ff14",
+      "sec": "s-tunes",
+      "file": "sounds/04 Tunes/ghostbusters!.mp3",
+      "loop": false
+    },
+    {
       "id": "f-04-tunes-gong-mp3-56d8",
       "name": "Gong",
-      "color": "#39ff14",
+      "color": "#a80000",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/Gong.mp3",
       "loop": false
@@ -482,7 +506,7 @@
     {
       "id": "f-04-tunes-happy-birthday-fart-mp3-7c3d",
       "name": "happy birthday fart",
-      "color": "#a80000",
+      "color": "#39ff14",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/happy birthday fart.mp3",
       "loop": false
@@ -490,7 +514,7 @@
     {
       "id": "f-04-tunes-happy-birthday-to-yuh-mp3-f2f6",
       "name": "happy birthday to yuh",
-      "color": "#39ff14",
+      "color": "#a80000",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/happy birthday to yuh.mp3",
       "loop": false
@@ -498,7 +522,7 @@
     {
       "id": "f-04-tunes-intro-breaking-news-mp3-348d",
       "name": "intro breaking news",
-      "color": "#a80000",
+      "color": "#1b1b1e",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/intro breaking news.mp3",
       "loop": false
@@ -506,7 +530,7 @@
     {
       "id": "f-04-tunes-lil-jon-what-mp3-1b87",
       "name": "lil jon what",
-      "color": "#1b1b1e",
+      "color": "#a80000",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/lil jon what.mp3",
       "loop": false
@@ -514,7 +538,7 @@
     {
       "id": "f-04-tunes-metal-happy-birthday-mp3-9be1",
       "name": "metal happy birthday",
-      "color": "#a80000",
+      "color": "#ff9f00",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/metal happy birthday.mp3",
       "loop": false
@@ -522,7 +546,7 @@
     {
       "id": "f-04-tunes-pinkpantheress-dhack-mp3-7fa8",
       "name": "Pinkpantheress DHACK",
-      "color": "#ff9f00",
+      "color": "#1b1b1e",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/Pinkpantheress DHACK.mp3",
       "loop": false
@@ -530,7 +554,7 @@
     {
       "id": "f-04-tunes-pokemon-battle-mp3-d596",
       "name": "pokemon battle",
-      "color": "#1b1b1e",
+      "color": "#ff9f00",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/pokemon battle.mp3",
       "loop": false
@@ -538,9 +562,17 @@
     {
       "id": "f-04-tunes-souljaboy-you-mp3-a817",
       "name": "souljaboy YOU",
-      "color": "#ff9f00",
+      "color": "#39ff14",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/souljaboy YOU.mp3",
+      "loop": false
+    },
+    {
+      "id": "f-04-tunes-spooky-scary-skeletons-mp3-fe2b",
+      "name": "spooky scary skeletons",
+      "color": "#a80000",
+      "sec": "s-tunes",
+      "file": "sounds/04 Tunes/spooky scary skeletons.mp3",
       "loop": false
     },
     {
@@ -565,6 +597,14 @@
       "color": "#39ff14",
       "sec": "s-tunes",
       "file": "sounds/04 Tunes/vine boom.mp3",
+      "loop": false
+    },
+    {
+      "id": "f-04-tunes-x-files-mp3-adac",
+      "name": "x files",
+      "color": "#1b1b1e",
+      "sec": "s-tunes",
+      "file": "sounds/04 Tunes/x files.mp3",
       "loop": false
     }
   ]
